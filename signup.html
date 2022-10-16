@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="signup.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="login">
+        <div class="imgcha">
+            <img class="img" src="./image/660e618f1420fb7ea231.jpg" alt="">
+        </div>
+        <form method="post">
+            <div class="username">
+                <input type="text" required id="user">
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="username">
+                <i class="fa-sharp fa-solid fa-check" id="tick"></i>
+                <input type="password" required oninput="checkpass()" id="pw">
+                <span></span>
+                <label> Password</label>
+            </div>
+            <div class="username">
+                <i class="fa-sharp fa-solid fa-check" id="tick2"></i>
+                <input type="text" id="check" oninput="checkemail()" required>
+                <span></span>
+                <label for="">Email</label>
+            </div>
+        </form>
+
+        <i class="fa-solid fa-eye" id="eye" onclick="see()"></i>
+
+        <div id="pannel">
+            <p id="letter" class="invalid">Phải chứa chữ viết thường</p>
+            <p id="capital" class="invalid">Phải có chữ viết hoa</p>
+            <p id="number" class="invalid">Phải chứa ký tự số</p>
+            <p id="special" class="invalid">Phải có ký tự đặc biệt</p>
+            <p id="length" class="invalid">có ít nhất 8 ký tự</p>
+        </div>
+
+        <button onclick="signup()">Sign Up</button>
+        <!-- <input type="submit" value="Sign Up" /> -->
+    </div>
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

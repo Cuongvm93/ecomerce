@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .productShow{
+            
+            justify-content: center;
+         width: 800px;
+         height: 450;
+
+        }
+        .productShow img{
+            height: 350px;
+            width: 350px;
+        }
+        .productShow h3{
+            position:absolute;
+            top: 5px;
+            left: 400px;
+            
+        }
+        .productShow h4{
+            position:absolute;
+            top: 87px;
+            left: 400px;
+            
+        }
+        .productShow p{
+            position:absolute;
+            top: 160px;
+            left: 400px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .productShow button{
+            position:relative;
+            top: -70px;
+            left: 40px;
+            width: 150px;
+            height: 40px;
+            border: 1px;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color:rgb(57, 243, 243);
+
+        }
+        .productShow button:hover{
+            background-color:aquamarine
+        }
+    </style>
+    <div class="productShow">
+        <img src="" alt="">
+        <h3 id="title"></h3>
+        <h4 id="des"></h4>
+        <p id="price"></p>
+        <button>
+            Buy Now
+        </button>
+        <button>
+            Add to card
+        </button>
+    </div>
+    <script>
+        // Get Id product Choice
+       let x= localStorage.getItem("productChoice")
+       console.log(x);
+       console.log(typeof(x));
+
+       //get product property
+       let arr=JSON.parse(localStorage.getItem("data"))
+       console.log(arr[x])
+       //add property to html
+      let a=document.getElementsByClassName("productShow")
+      a[0].children[0].src=arr[x].img
+      a[0].children[1].innerHTML=arr[x].title
+      a[0].children[2].innerHTML=arr[x].des
+      a[0].children[3].innerHTML=`Price: ${arr[x].price}`
+    </script>
+</body>
+ 
+</html>

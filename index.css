@@ -1,0 +1,191 @@
+
+        .header{
+            position:sticky;
+            display: flex;
+            justify-content: flex-end;
+           
+            height: 60px;
+            background: linear-gradient(0deg, rgba(34,83,195,0.9441526610644257) 0%, rgba(195,45,253,0.8881302521008403) 100%);
+            border: 2px solid orange;
+          
+        }
+        .slide{
+
+            height: 400px;
+            width: 100%;
+            border: 1px solid rgb(25, 91, 189);
+
+        }
+        #userIcon{
+            position: absolute;
+           
+            margin-right: 130px;
+            cursor: pointer;
+            
+           
+        }
+        .pannellogin{
+            position: absolute;
+            width: 110px;
+            height: 100px;
+            background-color: aqua;
+            right: 5px;
+            top: 50px;
+           display: none;
+           transition: 600ms;
+            
+        }
+        #logout{
+            border-bottom: 1px solid silver;
+            cursor: pointer;
+        }
+       #passPannel{
+        position:relative;
+        width: 300px;
+        height: 150px;
+        margin: 0 auto;
+        padding: auto;
+        display: none;
+       }
+       
+        
+      
+       #newPassFeild{
+        display:none;
+       }
+       #btLogin{
+        display:block;
+
+       }
+       #btSignup{
+        display:block;
+
+       }
+       .mySlides{
+        width: 800px;
+       height: 340px; 
+       padding: 0 200px; 
+      
+        }
+#menuBar{
+    position:absolute;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    
+    background-color: silver;
+    font-size:large ;
+    cursor: pointer;
+} 
+#menuBar>div:hover{
+    background-color:aquamarine ;
+} 
+.tap-brand{
+    width: 300px;
+    text-align: center;
+    border-right: 1px solid black;
+    
+}
+.Nike{
+    width: 300px;
+    text-align: center;
+    border-right: 1px solid black;
+}   
+.puma{
+    width: 300px;
+    text-align: center;
+    border-right: 1px solid black;
+}
+.newBlacne{
+    width: 300px;
+    text-align: center;
+}
+.adidasList{
+    row-gap: 30px;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    visibility:visible ;
+}
+.adidascard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 284px;
+    height: 412px;
+    margin: auto;
+    
+    font-family: arial;
+    border-radius: 5px;
+    text-align:left;
+
+    
+}
+.adidascard img{
+
+  width: 100%;
+  height: 286px;
+}
+.tap-content{
+    
+ 
+    display:none
+
+}
+.cardproduct{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 284px;
+    height: 412px;
+    margin: auto;
+    
+    font-family: roboto;
+    border-radius: 5px;
+    text-align:left;
+    cursor: pointer;
+
+    
+}
+.cardproduct:hover{
+    width: 300px;
+    height: 450px;
+    
+}
+.cardproduct img{
+    width: 100%;
+    height: 286px;
+
+}
+.cardproduct button{
+    position: relative;
+    width: 106px;
+    height: 35px;
+    font-size:15px ;
+    font-weight:400;
+    font-family: roboto;
+    border-radius: 5px;
+    border: 1px;
+    cursor: pointer;
+    left: 35px
+}
+.cardproduct button:hover{
+    background-color:rgb(172, 168, 168);
+    
+}
+.tap-content.active{
+    position: relative;
+    margin-top: 180px;
+    display: grid;
+    row-gap: 30px;
+    
+    grid-template-columns: 400px 400px 400px;
+}
+.tap-brand.active{
+    border-bottom: 1px solid orangered;
+    width: 100%;
+}
+.fi{
+    position: fixed;
+    margin-top: 25px;
+  left:  700px;
+  font-size: 50px;
+}
+.fi.active{
+ transition: 600ms;
+}
