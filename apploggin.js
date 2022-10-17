@@ -26,7 +26,7 @@
         if (i==0) {
             localStorage.setItem("boolLogin","true")
             window.location.href="index.html"
-            localStorage.setItem("chao",data[j].email)
+            localStorage.setItem("chao",data[j].user)
             // option thêm 1 đoạn boollogin nua, neu nó true khi nguoi dùng login trang thì moi hiện username           
         }
         

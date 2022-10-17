@@ -203,64 +203,64 @@ for (let index = 0; index < data.length; index++) {
 
 
 
+//funtion login
+// if (localStorage.getItem("boolLogin")) {
+//     console.log(localStorage.getItem("boolLogin"));
+//     document.getElementById("btLogin").style.display = "none"
+//     document.getElementById("btSignup").style.display = "none"
+//     let user = localStorage.getItem("chao")
+//     let hi = document.getElementById("sayHi");
+//     hi.textContent = user
+// }
+// let user = localStorage.getItem("chao")
+// let hi = document.getElementById("sayHi");
+// hi.textContent = user
 
-if (localStorage.getItem("boolLogin")) {
-    console.log(localStorage.getItem("boolLogin"));
-    document.getElementById("btLogin").style.display = "none"
-    document.getElementById("btSignup").style.display = "none"
-    let user = localStorage.getItem("chao")
-    let hi = document.getElementById("sayHi");
-    hi.textContent = user
-}
-let user = localStorage.getItem("chao")
-let hi = document.getElementById("sayHi");
-hi.textContent = user
+// function logout() {
+//     localStorage.removeItem("chao")
+//     location.reload()
+// }
+// function changePass() {
+//     document.getElementById("passPannel").style.display = "block"
+// }
+// function submit() {
+//     let oldPass = document.getElementById("oldPass").value;
+//     let arr = localStorage.getItem("cuong")
+//     let arrPass = []
+//     arr = JSON.parse(arr)
+//     let i = 0;
+//     for (let index = 0; index < arr.length; index++) {
 
-function logout() {
-    localStorage.removeItem("chao")
-    location.reload()
-}
-function changePass() {
-    document.getElementById("passPannel").style.display = "block"
-}
-function submit() {
-    let oldPass = document.getElementById("oldPass").value;
-    let arr = localStorage.getItem("cuong")
-    let arrPass = []
-    arr = JSON.parse(arr)
-    let i = 0;
-    for (let index = 0; index < arr.length; index++) {
+//         if (user == arr[index].email) {
+//             i = index;
+//             break;
+//         }
+//     }
+//     // check trùng pass
+//     for (let index = 0; index < arr.length; index++) {
+//         arrPass.push(arr[index].pass)
 
-        if (user == arr[index].email) {
-            i = index;
-            break;
-        }
-    }
-    // check trùng pass
-    for (let index = 0; index < arr.length; index++) {
-        arrPass.push(arr[index].pass)
-
-    }
-    if (arrPass.indexOf(oldPass) == -1) {
-        alert("Pass Word nhập không đúng")
-    } else {
-        console.log("222222");
-        document.getElementById("newPassFeild").style.display = "block"
-        let newPass = document.getElementById("newPassFeild").value;
-        console.log("111", newPass);
-        if (newPass == oldPass) {
-            alert("New pass trùng old pass")
-        }
-        else {
-            arr[i].pass = newPass;
-            console.log(arr[i].pass);
-            console.log(arr);
-            //localStorage.setItem("cuong",JSON.stringify(arr))
-        }
+//     }
+//     if (arrPass.indexOf(oldPass) == -1) {
+//         alert("Pass Word nhập không đúng")
+//     } else {
+//         console.log("222222");
+//         document.getElementById("newPassFeild").style.display = "block"
+//         let newPass = document.getElementById("newPassFeild").value;
+//         console.log("111", newPass);
+//         if (newPass == oldPass) {
+//             alert("New pass trùng old pass")
+//         }
+//         else {
+//             arr[i].pass = newPass;
+//             console.log(arr[i].pass);
+//             console.log(arr);
+//             //localStorage.setItem("cuong",JSON.stringify(arr))
+//         }
 
 
-    }
-}
+//     }
+// }
 // console.log(mouse());
 //    while (true) {
 

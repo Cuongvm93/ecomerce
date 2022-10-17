@@ -1,186 +1,256 @@
+.header {
+    position: absolute;
+    top:0%;
+    width: 100%;
+    height: 80px;
+   
 
-        .header{
-            position:sticky;
-            display: flex;
-            justify-content: flex-end;
-           
-            height: 60px;
-            background: linear-gradient(0deg, rgba(34,83,195,0.9441526610644257) 0%, rgba(195,45,253,0.8881302521008403) 100%);
-            border: 2px solid orange;
-          
-        }
-        .slide{
+}
 
-            height: 400px;
-            width: 100%;
-            border: 1px solid rgb(25, 91, 189);
+.header img {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    top: -62px;
+    left: 150px
+}
 
-        }
-        #userIcon{
-            position: absolute;
-           
-            margin-right: 130px;
-            cursor: pointer;
-            
-           
-        }
-        .pannellogin{
-            position: absolute;
-            width: 110px;
-            height: 100px;
-            background-color: aqua;
-            right: 5px;
-            top: 50px;
-           display: none;
-           transition: 600ms;
-            
-        }
-        #logout{
-            border-bottom: 1px solid silver;
-            cursor: pointer;
-        }
-       #passPannel{
-        position:relative;
-        width: 300px;
-        height: 150px;
-        margin: 0 auto;
-        padding: auto;
-        display: none;
-       }
-       
-        
-      
-       #newPassFeild{
-        display:none;
-       }
-       #btLogin{
-        display:block;
+.header input {
+    position: absolute;
+    background-color: rgb(231, 228, 228);
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    left: 500px;
+    top: 20px;
+    width: 350px;
+}
 
-       }
-       #btSignup{
-        display:block;
+.fa-user {
+    position: absolute;
+    top: 28px;
+    left: 1000px;
+    height: 100px;
+    width: 100px;
+    color: silver;
+    font-size: 22px;
+}
 
-       }
-       .mySlides{
-        width: 800px;
-       height: 340px; 
-       padding: 0 200px; 
-      
-        }
-#menuBar{
-    position:absolute;
+
+.header p {
+    position: absolute;
+    left: 1030px;
+    color: rgba(42, 39, 39, 0.922);
+    top: 9px;
+    font-size: 19px;
+    font-family: roboto;
+}
+.fa-bag-shopping{
+    position: absolute;
+    left: 1100px;
+    top: 9px;
+    font-size: 20px;
+
+}
+
+.slide {
+    position: absolute;
+    top:100px;
+    height: 300px;
+    width: 100%;
+    border: 1px solid rgb(25, 91, 189);
+
+}
+
+#userIcon {
+    position: absolute;
+
+    margin-right: 130px;
+    cursor: pointer;
+
+
+}
+
+.pannellogin {
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    background-color: aqua;
+    right: 5px;
+    top: 50px;
+    display: none;
+    transition: 600ms;
+
+}
+
+#logout {
+    border-bottom: 1px solid silver;
+    cursor: pointer;
+}
+
+#passPannel {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin: 0 auto;
+    padding: auto;
+    display: none;
+}
+
+
+
+#newPassFeild {
+    display: none;
+}
+
+#btLogin {
+    display: block;
+
+}
+
+#btSignup {
+    display: block;
+
+}
+
+.mySlides {
+    width: 800px;
+    height: 340px;
+    padding: 0 200px;
+
+}
+
+#menuBar {
+    position: absolute;
+    top: 400px;
     width: 100%;
     height: 80px;
     display: flex;
-    
+
     background-color: silver;
-    font-size:large ;
+    font-size: large;
     cursor: pointer;
-} 
-#menuBar>div:hover{
-    background-color:aquamarine ;
-} 
-.tap-brand{
-    width: 300px;
-    text-align: center;
-    border-right: 1px solid black;
-    
 }
-.Nike{
+
+#menuBar>div:hover {
+    background-color: aquamarine;
+}
+
+.tap-brand {
     width: 300px;
     text-align: center;
     border-right: 1px solid black;
-}   
-.puma{
+
+}
+
+.Nike {
     width: 300px;
     text-align: center;
     border-right: 1px solid black;
 }
-.newBlacne{
+
+.puma {
+    width: 300px;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+.newBlacne {
     width: 300px;
     text-align: center;
 }
-.adidasList{
+
+.adidasList {
     row-gap: 30px;
     display: grid;
     grid-template-columns: 400px 400px 400px;
-    visibility:visible ;
+    visibility: visible;
 }
-.adidascard{
+
+.adidascard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 284px;
     height: 412px;
     margin: auto;
-    
+
     font-family: arial;
     border-radius: 5px;
-    text-align:left;
+    text-align: left;
 
+
+}
+
+.adidascard img {
+
+    width: 100%;
+    height: 286px;
+}
+
+.tap-content {
     
-}
-.adidascard img{
 
-  width: 100%;
-  height: 286px;
+    display: none
 }
-.tap-content{
-    
- 
-    display:none
 
-}
-.cardproduct{
+.cardproduct {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 284px;
     height: 412px;
     margin: auto;
-    
+
     font-family: roboto;
     border-radius: 5px;
-    text-align:left;
+    text-align: left;
     cursor: pointer;
 
-    
+
 }
-.cardproduct:hover{
+
+.cardproduct:hover {
     width: 300px;
     height: 450px;
-    
+
 }
-.cardproduct img{
+
+.cardproduct img {
     width: 100%;
     height: 286px;
 
 }
-.cardproduct button{
+
+.cardproduct button {
     position: relative;
     width: 106px;
     height: 35px;
-    font-size:15px ;
-    font-weight:400;
+    font-size: 15px;
+    font-weight: 400;
     font-family: roboto;
     border-radius: 5px;
     border: 1px;
     cursor: pointer;
     left: 35px
 }
-.cardproduct button:hover{
-    background-color:rgb(172, 168, 168);
-    
+
+.cardproduct button:hover {
+    background-color: rgb(172, 168, 168);
+
 }
-.tap-content.active{
-    position: relative;
-    margin-top: 180px;
+
+.tap-content.active {
+    position: absolute;
+    margin-top: 480px;
     display: grid;
     row-gap: 30px;
-    
+
     grid-template-columns: 400px 400px 400px;
 }
-.tap-brand.active{
+
+.tap-brand.active {
     border-bottom: 1px solid orangered;
     width: 100%;
 }
-.fi{
+
+/* .fi{
     position: fixed;
     margin-top: 25px;
   left:  700px;
@@ -189,3 +259,4 @@
 .fi.active{
  transition: 600ms;
 }
+ */

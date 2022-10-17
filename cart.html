@@ -1,51 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="cart.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
- <div class="cartPanel" id="cartpanel">
-  <div class="title0">
-    <p class="title1">Product Name</p>
-    <p class="title2">price</p>
-    <p class="title3">Quantity</p>
-    <p class="title4">Subtotal</p>
-  </div>
- </div>
 
-<script>
-    let arr= localStorage.getItem("newcart")
-    arr=JSON.parse(arr)
-    let x=document.getElementById("cartpanel")
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="cart.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="header">
+    <img src="./dior/finaltini-removebg-preview.png" alt="">
+    <input type="text" placeholder="Search product...">
+    <i class="fa-solid fa-user"></i>
+    <p id="sayhi"></p>
+  </div>
+  <h1>My Cart</h1>
+  <div class="tabbleorder">
+    <div class="title0">
+      <p class="title1">Product Name</p>
+      <p class="title2">Price</p>
+      <p class="title3">Quantity</p>
+      <p class="title4">Subtotal</p>
+    </div>
+    <div class="cartPanel" id="cartpanel">
+      
+    </div>
+    <div class="summary">
+      <div class="order-sum">
+        <h2 style="font-weight:bold; border-bottom:1px solid silver ">Order Summary</h2>
+      </div>
+      <div class="details">
+        <p style="font-size: 16px;color:silver ">Subtotal</p>
+        <p style="font-size: 16px;color:silver; ">Discount</p>
+        <p style="font-size: 16px;color:silver ">Delivery Fee</p>
+        <p style="font-size: 20px;font-weight:bold; ">Grand Total</p>
+        <p id="subtotal" style="right:0px;top:0px;position: absolute"></p>
+        <p id="discount" style="right:0px;top:35px;position: absolute"></p>
+        <p id="fee" style="right:0px;position: absolute; top:67px"></p>
+        <p id="total" style="right: 0px;position: absolute; top:102px;font-size: 20px; font-weight: 500;"></p>
+      </div>
+      <div class="Button-buy">
+        <button style="background-color: rgb(34, 175, 235);">Check Out</button>
+        <button onclick="continueShopping()">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    let arr = localStorage.getItem("newcart")
+    arr = JSON.parse(arr)
+    let x = document.getElementById("cartpanel")
     for (let index = 0; index < arr.length; index++) {
-      x.innerHTML +=`
+      x.innerHTML += `
     <div class="productSelect">
     <img src="${arr[index][0].img}" alt="">
     <h2 class="title">${arr[index][0].title}</h2>
-    <p class="price">${arr[index][0].price}$</p>
-    <p class="unit">${arr[index][1]}</p>
-    <p class="total">${arr[index][1]*arr[index][0].price}$</p>
+    <p class="price">${new Intl.NumberFormat('de-DE').format(arr[index][0].price)} $</p>
+    <p class="unit"><i class="fa-solid fa-circle-minus"></i>&ensp;${arr[index][1]}&ensp;<i class="fa-solid fa-circle-plus"></i></span></p>
+    <p class="total">${new Intl.NumberFormat('de-DE').format(arr[index][1] * arr[index][0].price)} $</p>
     <button class="remove">Remove</button>
     </div>
-      `  
-        
+      `
+
     }
-    let newarr=[]
-    let r=document.querySelectorAll(".remove")
-    r.forEach((tap,index)=>{
-        tap.onclick=function(){
-        newarr=JSON.parse(localStorage.getItem("newcart"))
-         newarr.splice(index,1)
-         localStorage.setItem("newcart",JSON.stringify(newarr))
-         location.reload();
-        }
+    // boologin hiện thị user name
+
+    if (localStorage.getItem("boolLogin")) {
+      // console.log(localStorage.getItem("boolLogin"));
+      // document.getElementById("btLogin").style.display = "none"
+      // document.getElementById("btSignup").style.display = "none"
+      let user = localStorage.getItem("chao")
+      // let hi = document.getElementById("sayHi");
+      // hi.textContent = user
+    }
+    let user = localStorage.getItem("chao")
+    let hi = document.getElementById("sayhi");
+    hi.textContent = user
+
+
+    // Remove item
+    let newarr = []
+    let r = document.querySelectorAll(".remove")
+    r.forEach((tap, index) => {
+      tap.onclick = function () {
+        newarr = JSON.parse(localStorage.getItem("newcart"))
+        newarr.splice(index, 1)
+        localStorage.setItem("newcart", JSON.stringify(newarr))
+        location.reload();
+      }
     })
 
+    // Tăng số lượng unit
+    let arrunit = []
+    let add = document.querySelectorAll(".fa-circle-plus")
+    // console.log(add);
+    add.forEach((tap, index) => {
+      tap.onclick = function () {
+        arrunit = JSON.parse(localStorage.getItem("newcart"))
+        arrunit[index][1]++
+        localStorage.setItem("newcart", JSON.stringify(arrunit))
+        location.reload();
+      }
 
-</script> 
+    })
+
+    // Giảm số lượng unit
+    let arrminus = []
+    let minus = document.querySelectorAll(".fa-circle-minus")
+    // console.log(add);
+    minus.forEach((tap, index) => {
+      tap.onclick = function () {
+        arrminus = JSON.parse(localStorage.getItem("newcart"))
+        arrminus[index][1]--
+        localStorage.setItem("newcart", JSON.stringify(arrminus))
+        location.reload();
+      }
+
+    })
+
+    //total panel
+    let subTotal = 0;
+    let discount = 0;
+    let fee = 0;
+    let total = 0;
+
+    let dataCart = JSON.parse(localStorage.getItem("newcart"))
+    for (let index = 0; index < dataCart.length; index++) {
+      subTotal += dataCart[index][1] * dataCart[index][0].price
+
+    }
+
+    if (subTotal >= 1000) {
+      discount = subTotal * 0.02
+      fee = 0
+    }
+    if (subTotal >= 5000) {
+      discount = subTotal * 0.05
+      fee = 5
+    }
+    if (subTotal >= 10000) {
+      discount = subTotal / 10
+      fee = 20
+    }
+    total = subTotal - discount + fee
+    console.log(subTotal);
+    console.log(fee);
+    console.log(discount);
+    document.getElementById("subtotal").innerHTML = `$ ${new Intl.NumberFormat('de-DE').format(subTotal)}`
+    document.getElementById("discount").innerHTML = `$ ${new Intl.NumberFormat('de-DE').format(discount)}`
+    document.getElementById("fee").innerHTML = `$ ${fee}`
+    document.getElementById("total").innerHTML = `$ ${new Intl.NumberFormat('de-DE').format(total)}`
+    //continue Shopping
+    function continueShopping() {
+      window.location.href = "index.html"
+    }
+
+    // let format=1000;
+    //  format=Intl.NumberFormat()
+    // console.log(format);
+  </script>
 </body>
+
 </html>
