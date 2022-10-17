@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cart.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <div class="cartPanel" id="cartpanel">
+  <div class="title0">
+    <p class="title1">Product Name</p>
+    <p class="title2">price</p>
+    <p class="title3">Quantity</p>
+    <p class="title4">Subtotal</p>
+  </div>
+ </div>
+
+<script>
+    let arr= localStorage.getItem("newcart")
+    arr=JSON.parse(arr)
+    let x=document.getElementById("cartpanel")
+    for (let index = 0; index < arr.length; index++) {
+      x.innerHTML +=`
+    <div class="productSelect">
+    <img src="${arr[index][0].img}" alt="">
+    <h2 class="title">${arr[index][0].title}</h2>
+    <p class="price">${arr[index][0].price}$</p>
+    <p class="unit">${arr[index][1]}</p>
+    <p class="total">${arr[index][1]*arr[index][0].price}$</p>
+    <button class="remove">Remove</button>
+    </div>
+      `  
+        
+    }
+    let newarr=[]
+    let r=document.querySelectorAll(".remove")
+    r.forEach((tap,index)=>{
+        tap.onclick=function(){
+        newarr=JSON.parse(localStorage.getItem("newcart"))
+         newarr.splice(index,1)
+         localStorage.setItem("newcart",JSON.stringify(newarr))
+         location.reload();
+        }
+    })
+
+
+</script> 
+</body>
+</html>

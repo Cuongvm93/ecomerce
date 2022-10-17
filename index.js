@@ -3,7 +3,7 @@ let data=[
         img:"./adidas/adidasID1.jpg",
         title:"CAMPUS 80S SOUTH PARK TOWELIE",
         des:"Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.",
-        price:"80$",
+        price:80,
         cate:"adidas"
 
     },
@@ -12,7 +12,7 @@ let data=[
         img:"./adidas/adidasId2.jpg",
         title:"Sam smith Shoe", 
         des:"Inspired by the original AJ1",
-        price:"120$",
+        price:120,
         cate:"adidas"
     },
     {
@@ -20,7 +20,7 @@ let data=[
         img:"./adidas/adidasID3.jpg",
         title:"Ultimashow Shoes",
         des:"Inspired by the original id2",
-        price:"85$",
+        price:85,
         cate:"adidas"
     },
     {
@@ -28,7 +28,7 @@ let data=[
         img:"./adidas/AdidasID4.JPG",
         title:"Manchester United 22/23 Home Jersey",
         des:"Inspired by the original id3",
-        price:"170$",
+        price:170,
         cate:"adidas"
     },
     {
@@ -36,7 +36,7 @@ let data=[
         img:"./adidas/AdidasID5.Jpg",
         title:"Forum Low CL",
         des:"Inspired by the original id4",
-        price:"75$",
+        price:75,
         cate:"adidas"
     },
     {
@@ -44,7 +44,7 @@ let data=[
         img:"./Nike/id1.jpg",
         title:"Air Jordan 1 Mid",
         des:"Inspired by the original id5",
-        price:"125$",
+        price:125,
         cate:"nike"
     },
     {
@@ -52,7 +52,7 @@ let data=[
         img:"./Nike/id2.jpg",
         title:"Nike Air Force",
         des:"Inspired by the original id6",
-        price:"130$",
+        price:130,
         cate:"nike"
     },
     {
@@ -60,7 +60,7 @@ let data=[
         img:"./Nike/id3.jpg",
         title:"Nike Dunk High Retro",
         des:"Inspired by the original id7",
-        price:"125$",
+        price:125,
         cate:"nike"
     },
     {
@@ -68,7 +68,7 @@ let data=[
         img:"./Nike/nike4.jpg",
         title:"Men wear leg",
         des:"Inspired by the original id8", 
-        price:"135$",
+        price:135,
         cate:"nike"
     },
     {
@@ -76,7 +76,7 @@ let data=[
         img:"./Nike/nike5.jpg",
         title:"Nike SB Force 58",
         des:"Inspired by the original id9",
-        price:"80$",
+        price:80,
         cate:"nike",
         
     },
@@ -85,7 +85,7 @@ let data=[
         img:"./dior/dior3.jpg",
         title:"Large DiorAlps Dior Book Tote",
         des:"Inspired by the original id10",
-        price:"3788$",
+        price:3788,
         cate:"dior"
     },
     {
@@ -93,7 +93,7 @@ let data=[
         img:"./dior/dior4.jpg",
         title:"Large Dior Book Tote",
         des:"Inspired by the original id111",
-        price:"4095$",
+        price:4095,
         cate:"dior"
     },
     {
@@ -101,7 +101,7 @@ let data=[
         img:"./dior/dior1.jpg",
         title:"Mini dior Bag",
         des:"Inspired by the original id12",
-        price:"4200$",
+        price:4200,
         cate:"dior"
     },
     {
@@ -109,10 +109,15 @@ let data=[
         img:"./dior/dior2.jpg",
         title:"Medium Dior book Tole",
         des:"Inspired by the original id13",
-        price:"4150$",
+        price:4150,
         cate:"dior"
     }   
 ]
+
+
+
+
+
 localStorage.setItem("data",JSON.stringify(data))
 let y=document.getElementById("adidaslist")
 let nikelist=document.getElementById("nikelist")
@@ -152,7 +157,7 @@ for (let index = 0; index < data.length; index++) {
          <img src=${data[index].img} alt="">
         <p style="font-size:15px ;text-align:center">${data[index].title}</p>
         <p style="font-size: 15px; font-weight: bold;text-align:center"">${data[index].price}</p>
-         <button style="" ><i class="fi fi-rr-shopping-cart-add"></i> Add to cart</button>
+         <button style="" ><i class="fi fi-rr-shopping-cart-add" ></i> Add to cart</button>
            <button>Buy Now</button>          
         ` ;
     if (data[index].cate=="adidas") {y.innerHTML += dat}
@@ -343,14 +348,42 @@ x.forEach((tap,index)=>{
 })
 
 //ADD TO CART
+// localStorage.removeItem("cart")
+// localStorage.removeItem("newcart")
+
 let cart=[]
-console.log(cart);
-let unit=0;
 x.forEach((tap,index)=>{
     tap.children[3].onclick=function () {
-       
-        cart.push([data[index],1])
-        console.log(cart);
-       
+        cart=(JSON.parse(localStorage.getItem("newcart")))
+        // console.log(cart);
+        // console.log(cart==null);
+        // let g=JSON.stringify(cart[0][0])
+        // let h=JSON.stringify(data[index])
+        // console.log(g==h);
+        // console.log(cart);
+        if (cart==null) {
+            cart=[]
+            cart.push([data[index],1])
+            console.log(cart);
+        }else{
+            let flag =0;
+            for (let i = 0; i < cart.length; i++) {
+                //JSON.stringify(cart[i][0])==JSON.stringify(data[index])
+                if (cart[i][0].id==data[index].id) {
+                    cart[i][1]++
+                    flag=1;
+                }
+                
+            } 
+            if (flag==0) {
+                cart.push([data[index],1])
+            }
+        }
+        
+        
+        localStorage.setItem("newcart",JSON.stringify(cart))
     }
 })
+
+
+
