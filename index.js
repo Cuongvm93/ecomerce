@@ -292,13 +292,13 @@ function userClick() {
 
 }
 
-// slide show
-// setInterval(() => {
-//     let a=document.getElementsByClassName("mySlides");
-//     let x=Math.floor(Math.random()*4)
-//     console.log(x);
-//     a[0].setAttribute("src",`./image/slide${x}.jpg`)
-// }, 1200 );
+//slide show
+setInterval(() => {
+    let a=document.getElementsByClassName("mySlides");
+    let x=Math.floor(Math.random()*6)
+    console.log(x);
+    a[0].setAttribute("src",`./image/slide${x}.jpg`)
+}, 1400 );
 
 
 // show tapMenu -- done
@@ -382,8 +382,13 @@ x.forEach((tap,index)=>{
         
         
         localStorage.setItem("newcart",JSON.stringify(cart))
+        document.getElementsByClassName("circle-cart")[0].style.display="block";
     }
 })
 
+// Open Cart page
+function cartpage() {
+    window.location.href="cart.html"
+}
 
 
