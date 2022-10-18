@@ -3,70 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="product.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
     <title>Document</title>
 </head>
 
 <body>
-    <style>
-        .productShow{
-            
-            justify-content: center;
-         width: 800px;
-         height: 450;
+    <div class="header">
+        <img src="./dior/finaltini-removebg-preview.png" alt="">
 
-        }
-        .productShow img{
-            height: 350px;
-            width: 350px;
-        }
-        .productShow h3{
-            position:absolute;
-            top: 5px;
-            left: 400px;
-            
-        }
-        .productShow h4{
-            position:absolute;
-            top: 87px;
-            left: 400px;
-            
-        }
-        .productShow p{
-            position:absolute;
-            top: 160px;
-            left: 400px;
-            font-size: 30px;
-            font-weight: bold;
-        }
-        .productShow button{
-            position:relative;
-            top: -70px;
-            left: 40px;
-            width: 150px;
-            height: 40px;
-            border: 1px;
-            cursor: pointer;
-            border-radius: 10px;
-            background-color:rgb(57, 243, 243);
+        <input type="text" placeholder="Search product...">
+        <i class="fa-solid fa-user"></i>
+        <p id="sayhi"></p>
+        <i class="fi fi-rr-shopping-bag" onclick="cartpage()">
+            <div class="circle-cart">
 
-        }
-        .productShow button:hover{
-            background-color:aquamarine
-        }
-    </style>
+            </div>
+        </i>
+      </div>
+    
     <div class="productShow">
         <img src="" alt="">
-        <h3 id="title"></h3>
-        <h4 id="des"></h4>
+        <div class="slick">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+            <img src="" alt="">
+
+        </div>
+    </div>
+    <div class="detail">
+        <h1 id="title"></h1>
+        <p id="des"></p>
         <p id="price"></p>
-        <button>
-            Buy Now
-        </button>
-        <button>
-            Add to card
-        </button>
+        <div class="button">
+            <button>Add to Cart</button>
+            <button>Buy Now</button>
+        </div>
     </div>
     <script>
         // Get Id product Choice
@@ -77,12 +55,76 @@
        //get product property
        let arr=JSON.parse(localStorage.getItem("data"))
        console.log(arr[x])
+       console.log(arr[x].id);
        //add property to html
-      let a=document.getElementsByClassName("productShow")
+      /* let a=document.getElementsByClassName("productShow") */
+      let a=document.querySelectorAll(".productShow")
+      let b= document.getElementsByClassName("slick")
+      let c=document.querySelectorAll(".detail")
+      console.log(a);
+      console.log(b);
       a[0].children[0].src=arr[x].img
-      a[0].children[1].innerHTML=arr[x].title
-      a[0].children[2].innerHTML=arr[x].des
-      a[0].children[3].innerHTML=`Price: ${arr[x].price}`
+      a[0].children[1].children[0].src=arr[x].img2
+      a[0].children[1].children[1].src=arr[x].img3
+      a[0].children[1].children[2].src=arr[x].img1
+      a[0].children[1].children[3].src=arr[x].img
+      console.log(a[0].children[1].children);
+      //Click small Image
+    //   a[0].children[1].children.forEach((tap,index) => {
+    //     tap.onclick= function () {
+    //         a[0].children[0].src=a[0].children[1].children[index].src
+    //     }
+    //   });
+    let newarr=[]
+    newarr=a[0].children[1].children
+    console.log(newarr);
+    for (let index = 0; index < newarr.length; index++) {
+        newarr[index].onclick= function () {
+            a[0].children[0].src= newarr[index].src
+            // newarr.setAttribute("class", "")
+            // newarr[index].setAttribute("class", "shawdow")
+            for (let index = 0; index < newarr.length; index++) {
+                newarr[index].setAttribute("class", "")
+                
+            }
+            newarr[index].setAttribute("class", "shawdow")
+        }
+        
+    }
+
+    //import detail
+    console.log(c);
+    document.getElementById("title").textContent=arr[x].title
+    document.getElementById("des").innerHTML=arr[x].des
+    document.getElementById("price").innerText=`Price: ${new Intl.NumberFormat('de-DE').format(arr[x].price)} $`
+    //add to cart
+    let add=document.querySelectorAll(".button")
+    console.log(add);
+    console.log(add[0].children[0]);
+    add[0].children[0].onclick= function () {
+        let currentArr=[]
+        currentArr=JSON.parse(localStorage.getItem("newcart"))
+        console.log(currentArr);
+        if (currentArr==[]) {
+            
+            currentArr.push([arr[x],1])
+        }else
+        {
+            let flag=0;
+          for (let index = 0; index < currentArr.length; index++) {
+                
+                if (currentArr[index][0].id==arr[x].id) {
+                    currentArr[index][1] ++
+                    flag=1
+                }
+                
+            }
+            if (flag==0) {
+                currentArr.push([arr[x],1])
+            }
+        }
+        localStorage.setItem("newcart",JSON.stringify(currentArr))
+    }
     </script>
 </body>
  

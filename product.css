@@ -1,0 +1,170 @@
+.header {
+    position: absolute;
+    top:0%;
+    width: 100%;
+    height: 80px;
+   
+
+}
+.header img {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    top: -62px;
+    left: 150px
+}
+.header input {
+    position: absolute;
+    background-color: rgb(231, 228, 228);
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    left: 500px;
+    top: 20px;
+    width: 350px;
+}
+.fa-user {
+    position: absolute;
+    top: 28px;
+    left: 1000px;
+    height: 100px;
+    width: 100px;
+    color: silver;
+    font-size: 22px;
+}
+.header p {
+    position: absolute;
+    left: 1030px;
+    color: rgba(42, 39, 39, 0.922);
+    top: 9px;
+    font-size: 19px;
+    font-family: roboto;
+}
+.fi-rr-shopping-bag{
+    position: absolute;
+    left: 1100px;
+    color: silver;
+    top: 27px;
+    font-size: 24px;
+    cursor: pointer;
+
+}
+        .productShow{
+         position: absolute;
+         display: flex;
+         width: 550px;
+         height: 654px;
+         top: 200px;
+         left: 120px;
+         flex-direction: column;
+         gap: 24px;
+         align-items: center;
+  
+        }
+        .productShow img{
+            height: 550px;
+            width: 550px;
+            border-radius: 5px;
+        }
+        .slick{
+            width: 393;
+            height: 75px;
+            display: flex;
+            flex-direction: row;
+            gap: 31px;
+        }
+        .slick img{
+            width: 75px;
+            height: 75px;
+            background-color: white;
+            opacity: 0.9;
+        }
+        .detail{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            /* background-color: antiquewhite; */
+            width: 480px;
+            height: 618px;
+            top: 200px;
+            left: 750px;
+        }
+        .detail h1{
+            position: absolute;
+            top:50px;
+            width: 480px;
+            height: 50px;
+
+        }
+        #des{
+            position: absolute;
+            top:130px;
+            width: 400px ;
+            height: 150px;
+            max-height: 150px;
+            overflow-y: scroll;
+           
+        }
+        #price{
+            position: absolute;
+            top: 330px;
+            width: 400px;
+            height: 50px;
+            font-size: 35px;
+        }
+        .button{
+            position: absolute;
+            top: 460px;
+            left: 10px;
+            width: 450px;
+            height: 100px;
+        }
+        .button button{
+            width: 180px;
+            height: 50px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(75, 184, 243);
+        }
+/*         .productShow h3{
+            position:absolute;
+            top: 5px;
+            left: 400px;
+            
+        }
+        .productShow h4{
+            position:absolute;
+            top: 87px;
+            left: 400px;
+            
+        }
+        .productShow p{
+            position:absolute;
+            top: 160px;
+            left: 400px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .productShow button{
+            position:relative;
+            top: -70px;
+            left: 40px;
+            width: 150px;
+            height: 40px;
+            border: 1px;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color:rgb(57, 243, 243);
+
+        }
+        .productShow button:hover{
+            background-color:aquamarine
+        } */
+   
+    .shawdow{
+        box-shadow: 1px 5px orange;
+    }
