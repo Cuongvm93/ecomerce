@@ -200,7 +200,7 @@ for (let index = 0; index < data.length; index++) {
         <p style="font-size:15px ;text-align:center">${data[index].title}</p>
         <p style="font-size: 15px; font-weight: bold;text-align:center"">${data[index].price}</p>
          <button style="" ><i class="fi fi-rr-shopping-cart-add" ></i> Add to cart</button>
-           <button>Buy Now</button>          
+           <button class="buy-now">Buy Now</button>          
         ` ;
     if (data[index].cate=="adidas") {y.innerHTML += dat}
     else if(data[index].cate=="nike"){nikelist.innerHTML += dat}
@@ -433,4 +433,11 @@ function cartpage() {
     window.location.href="cart.html"
 }
 
-
+let buynow=document.querySelectorAll(".buy-now")
+buynow.forEach((tap,index)=>{
+    tap.onclick=function () {
+        localStorage.setItem("checkoutFromCart","false")
+        localStorage.setItem("checkoutfromoutsidecart",index)
+        window.location.href="chechout.html"
+    }
+})

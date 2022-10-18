@@ -43,7 +43,7 @@
         <p id="price"></p>
         <div class="button">
             <button>Add to Cart</button>
-            <button>Buy Now</button>
+            <button onclick="buynow()">Buy Now</button>
         </div>
     </div>
     <script>
@@ -124,6 +124,13 @@
             }
         }
         localStorage.setItem("newcart",JSON.stringify(currentArr))
+    }
+
+    // buy now Button
+    function buynow() {
+        localStorage.setItem("checkoutFromCart","false")
+        localStorage.setItem("checkoutfromoutsidecart",x)
+        window.location.href="chechout.html"
     }
     </script>
 </body>
