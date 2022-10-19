@@ -441,3 +441,4 @@ buynow.forEach((tap,index)=>{
         window.location.href="chechout.html"
     }
 })
+

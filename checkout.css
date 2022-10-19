@@ -204,10 +204,13 @@ h1{
     flex-direction: row;
     gap: 60px;
     justify-content: space-around;
+    position: absolute;
+    top:30px;
 }
 .payoption img{
     width: 120px;
     height: 120px;
+    
 }
 .sumary{
     position:absolute;
@@ -282,4 +285,40 @@ h1{
     flex-direction: row;
     gap:202px;
     justify-content: space-between;
+}
+
+.purchase{
+    position: absolute;
+    
+    width: 156px;
+    height: 44px;
+    background-color: #1B4B66;
+    color: white;
+    border-radius: 5px;
+    left: 860px;
+    top:750px;
+    border:none;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+
+}   
+.purchase:hover{
+    box-shadow: 2px silver;
+}
+.error{
+    border-bottom: 1px solid red;
+}
+.active{
+    display: block;
+}
+.opacity{
+    position: absolute;
+    width: 1500px;
+    height: 900px;
+    opacity: 0.9;
+    display: none;
+    background-color: rgb(244, 244, 244);
+    
+    z-index: 10;
 }

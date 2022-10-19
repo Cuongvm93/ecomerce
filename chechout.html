@@ -31,12 +31,13 @@
         <div class="div1">
             <div class="fullnameorder">
                 <p>Full Name</p>
-                <input type="text" placeholder="Enter name">
+                <input type="text" placeholder="Enter name" class="inp" required>
             </div>
             <div class="number">
                 <p> Mobile number</p>
                 
-                    <input type="text" placeholder="tel">
+                    <input class="inp" type="number" placeholder="tel" required  pattern="/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/g">
+                    <p id="errortel " style="color:red;font-size: 10px; font-style: italic;display: none;">Tel Number is incorect</p>
                     
                 
             </div>
@@ -44,21 +45,21 @@
         <div class="div1">
             <div class="street">
                 <p>Adress</p>
-                <input type="text" placeholder="Adresss">
+                <input class="inp" type="text" placeholder="Adresss" required >
             </div>
             <div class="state">
                 <p>State</p>
-                <input type="text" placeholder="State">
+                <input class="inp" type="text" placeholder="State" required>
             </div>
         </div>
         <div class="div1">
             <div class="city">
                 <p>City</p>
-                <input type="text" placeholder="City">
+                <input class="inp" type="text" placeholder="City" required>
             </div>
             <div class="zipcode">
                 <p>Zip Code</p>
-                <input type="text" placeholder="Zip code">
+                <input class="inp"  type="number" placeholder="Zip code" required >
             </div>
         </div>
         </div>
@@ -88,6 +89,13 @@
                
             </div>
         </div>
+    </div>
+    <button class="purchase" onclick="purchase()">Purchase</button>
+    <div class="opacity">
+
+    </div>
+    <div class="congra">
+     
     </div>
 <script src="./checkout.js"></script>
 </body>
