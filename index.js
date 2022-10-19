@@ -234,6 +234,21 @@ for (let index = 0; index < data.length; index++) {
 //   `
 // }
 
+// funtion Login
+function gologin() {
+    window.location.href="login.html"
+}
+function gosingup() {
+    window.location.href="signup.html"
+}
+if (localStorage.getItem("boolLogin")=="true") {
+    document.getElementById("btLogin").style.display="none"
+    document.getElementById("btSignup").style.display="none"
+}
+else{
+    document.getElementById("btLogin").style.display="block"
+    document.getElementById("btSignup").style.display="block"
+}
 
 
 
@@ -244,24 +259,32 @@ for (let index = 0; index < data.length; index++) {
 
 
 
+//funtion show UserName and Cart
+if (localStorage.getItem("boolLogin")=="true") {
+    console.log(localStorage.getItem("boolLogin"));
+    // document.getElementById("btLogin").style.display = "none"
+    // document.getElementById("btSignup").style.display = "none"
+    let user = localStorage.getItem("chao")
+    let hi = document.getElementById("sayhi");
+    hi.textContent = user
+}
 
-//funtion login
-// if (localStorage.getItem("boolLogin")) {
-//     console.log(localStorage.getItem("boolLogin"));
-//     document.getElementById("btLogin").style.display = "none"
-//     document.getElementById("btSignup").style.display = "none"
-//     let user = localStorage.getItem("chao")
-//     let hi = document.getElementById("sayHi");
-//     hi.textContent = user
-// }
-// let user = localStorage.getItem("chao")
-// let hi = document.getElementById("sayHi");
-// hi.textContent = user
+// Funtion Log Out
+function logout() {
+    localStorage.removeItem("chao")
+    localStorage.removeItem("boolLogin")
+    
+    location.reload()
+}
 
-// function logout() {
-//     localStorage.removeItem("chao")
-//     location.reload()
-// }
+// Hide - Visible Icon Cart
+if (localStorage.getItem("boolLogin")!="true") {
+    document.getElementsByClassName("fi-rr-shopping-bag")[0].style.display="none"
+
+}else{
+    document.getElementsByClassName("fi-rr-shopping-bag")[0].style.display="block"
+}
+
 // function changePass() {
 //     document.getElementById("passPannel").style.display = "block"
 // }
@@ -305,7 +328,7 @@ for (let index = 0; index < data.length; index++) {
 // }
 // console.log(mouse());
 //    while (true) {
-
+let login = localStorage.getItem("boolLogin")
 function mouse() {
     // random màu của he hello
     setInterval(() => {
@@ -319,15 +342,18 @@ function mouse() {
 
     }, 700);
 }
-function userClick() {
-    let login = localStorage.getItem("boolLogin")
-    if (login == true) {
-        let a = document.getElementById("pannellogin")
-        if (a.style.display == "none") {
-            a.style.display = "block";
+// user click button
+function clickuser() {
+    
+    if (login == "true") {
+       
+        let a = document.getElementById("dropdown")
+        console.log(a.style.visibility);
+        if (a.style.visibility === "hidden") {
+            a.style.visibility = "visible";
         }
         else {
-            a.style.display = "none"
+            a.style.visibility = "hidden"
         }
     }
 

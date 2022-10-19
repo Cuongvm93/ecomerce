@@ -10,7 +10,7 @@
         console.log(data[2].pass);
         let i=0;
         let j=0;
-        for (let index = 0; index < data.length; index++) {
+        for (let index = 1; index < data.length; index++) {
             if (user!==data[index].user||pass!==data[index].pass) {
               i=1
             } else{

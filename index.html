@@ -15,13 +15,21 @@
     <div class="header">
         <img src="./dior/finaltini-removebg-preview.png" alt="">
         <input type="text" placeholder="Search product...">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user" onclick="clickuser()"></i>
+        <div class="dropdown" id="dropdown">
+            <div class="div1">Profile</div>
+            <div class="div1">Change password</div>
+            <div class="div1" onclick="logout()">Sign out</div>
+        </div>
         <p id="sayhi"></p>
         <i class="fi fi-rr-shopping-bag" onclick="cartpage()">
             <div class="circle-cart">
+            
 
             </div>
         </i>
+        <div id="btLogin" style="font-style:roboto ;" onclick="gologin()">Login</div>
+        <div id="btSignup" style="font-style:roboto ;" onclick="gosignup()">Sign Up</div>
       </div>
    <!--  <div class="header" >
         <i class="fi fi-ss-shopping-cart"></i>
