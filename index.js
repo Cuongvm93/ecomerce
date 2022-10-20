@@ -15,7 +15,7 @@ let data=[
         img:"./adidas/adidasId2.jpg",
         img1:"./adidas/Adidas ID1-1.JPG",
         img2:"./adidas/Adidas ID1-2.JPG",
-        img3:"",
+        img3:"adidas/adidas ID1-3.JPG",
         title:"Sam smith Shoe", 
         des:"Timeless appeal. Effortless style. Everyday versatility. For over 50 years and counting, adidas Stan Smith Shoes have continued to hold their place as an icon. This pair shows off a fresh redesign as part of adidas' commitment to use only recycled polyester by 2024. With a vegan upper and an outsole made from rubber waste, they still have iconic style, they're just made with the planet in mind.",
         price:120,
@@ -422,7 +422,10 @@ x.forEach((tap,index)=>{
 let cart=[]
 x.forEach((tap,index)=>{
     tap.children[3].onclick=function () {
-        cart=(JSON.parse(localStorage.getItem("newcart")))
+        if (login!=="true") {
+            alert("You must login first")
+        }else{
+            cart=(JSON.parse(localStorage.getItem("newcart")))
         // console.log(cart);
         // console.log(cart==null);
         // let g=JSON.stringify(cart[0][0])
@@ -451,6 +454,7 @@ x.forEach((tap,index)=>{
         
         localStorage.setItem("newcart",JSON.stringify(cart))
         document.getElementsByClassName("circle-cart")[0].style.display="block";
+        }
     }
 })
 
@@ -462,9 +466,88 @@ function cartpage() {
 let buynow=document.querySelectorAll(".buy-now")
 buynow.forEach((tap,index)=>{
     tap.onclick=function () {
-        localStorage.setItem("checkoutFromCart","false")
-        localStorage.setItem("checkoutfromoutsidecart",index)
-        window.location.href="chechout.html"
+        if (login!=true) {
+            alert("You must login fist")
+        }else{
+            localStorage.setItem("checkoutFromCart","false")
+            localStorage.setItem("checkoutfromoutsidecart",index)
+            window.location.href="chechout.html"
+        }
+
     }
 })
 
+// Function changpass
+function changepass() {
+    document.getElementById("changepass").style.visibility="visible"
+    document.getElementById("dropdown").style.visibility="hidden"
+
+}
+//Update password
+function update() {
+let flag=0;
+let i=0;
+let arremail=[];
+let arrpass=[];
+let re =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+let mail=document.getElementById("emailcheck").value
+let pass=document.getElementById("oldpass").value
+let newpass=document.getElementById("newpass").value
+let user=localStorage.getItem("chao")
+let datauser=JSON.parse(localStorage.getItem("cuong"))
+// console.log(datauser[1].user);
+for (let index = 1; index < datauser.length; index++) {
+    if (user==datauser[index].user) {
+        i=index
+        break;
+        
+    }
+    
+}  
+// console.log(i);
+
+if (mail!== datauser[i].email) {
+    flag=1
+    document.getElementById("emailnotmatch").style.display="block"
+}
+else{
+    document.getElementById("emailnotmatch").style.display="none"
+}   
+if (pass!==datauser[i].pass) {
+    flag=1
+    document.getElementById("passnotmatch").style.display="block"
+}else{
+    document.getElementById("passnotmatch").style.display="none"
+}
+if (!newpass.match(re)) {
+    flag=1
+    document.getElementById("passincorrect").style.display="block"
+}else{
+    document.getElementById("passincorrect").style.display="none"
+}
+
+ if (pass!=""&&newpass===pass) {
+    flag=1
+    document.getElementById("matcholdpass").style.display="block"
+ }else{
+    document.getElementById("matcholdpass").style.display="none"
+ }
+ console.log(flag);
+ if (flag==0) {
+    datauser[i].pass=newpass
+    localStorage.setItem("cuong",JSON.stringify(datauser))
+    document.getElementById("done").style.display="block"
+    
+    setTimeout(() => {
+        document.getElementById("changepass").style.display="none"
+      }, 2000)
+ }
+}
+function cancel() {
+    document.getElementById("changepass").style.visibility="hidden"
+}
+
+// CLick profile icon
+function profile(params) {
+    window.location.href="Profile.html"
+}

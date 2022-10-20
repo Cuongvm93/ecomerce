@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="profile.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -17,7 +17,7 @@
         <input type="text" placeholder="Search product...">
         <i class="fa-solid fa-user" onclick="clickuser()"></i>
         <div class="dropdown" id="dropdown">
-            <div class="div1" onclick="profile()">Profile</div>
+            <div class="div1">Profile</div>
             <div class="div1" onclick="changepass()">Change password</div>
             <div class="div1" onclick="logout()">Sign out</div>
         </div>
@@ -56,63 +56,54 @@
         <button style="width: 80px; height: 20px;" onclick="cancel()">Cancel</button>
         </div>
        </div>
-   <!--  <div class="header" >
-        <i class="fi fi-ss-shopping-cart"></i>
-        <i class="fa-solid fa-user" onclick="userClick()" id="userIcon"></i>
-        <h1 id="sayHi"onmouseover="mouse()"></h1>
-        <button id="btLogin">Login</button>
-        <button id="btSignup">Sign Up</button>
+       <h1>Personal Info</h1>
+       <div class="info">
+        <div class="infotilte" style="height:40px">
+            <h3>Personal Info</h3>
+        </div>
+        <div class="detailinfo">
+            <div class="name">
+                <div class="fullname">
+                    <p style="margin:0%">Full Name</p>
+                    <div id="divfullname"><p id="fullname"></p></div>
+                </div>
+                <div class="fullname">
+                    <p style="margin:0%">UserName</p>
+                    <div id="divname"><p id="username"></p></div>
+                </div>
+
+            </div>
+            <div class="email"></div>
+            <div class="name">
+                <div class="fullname">
+                    <p style="margin:0%">Email</p>
+                    <div id="divmail"><p id="email"></p></div>
+                </div>
+                <div class="fullname">
+                    <p style="margin:0%">Phone</p>
+                    <div id="divphone"><p id="tel"></p></div>
+                </div>
+
+            </div>
+
+           
+            <div class="adress">
+                <p style="margin:0%">Address</p>
+                <div id="divadress"><p id="adress"></p></div>
+            </div>
+       
+        <div class="ordertiltle" style="height:40px">
+            <h3> Order Recently</h3>
+        </div>
+        <div class="detailorder"></div>
         
-    </div> -->
- <!--    <div class="pannellogin" id="pannellogin">
-     <P id="logout" onclick="logout()">Log out</P>
-     <P id="changePassbutton" onclick="changePass()"  style="cursor:pointer">Change Pass</P>
-    </div>
-    <div id="passPannel">
-        <input type="text" placeholder="mật khẩu cũ" id="oldPass">
-        <input type="text"placeholder="Mật khẩu mới" id="newPassFeild"> 
-        <button type="submit" class="btn btn-primary" onclick="submit()">Submit</button>
-    </div>
-    <h2 class="w3-center">Manual Slideshow</h2> -->
-
-<div class="slide">
-  <img class="mySlides" src="./image/slide1.jpg" >
- 
-
-  <!-- <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button> -->
-</div>
-    
-<div id="menuBar">
-    <div class="tap-brand active">
-        <p>Adidas</p>
-
-    </div>
-    <div class="tap-brand" >
-        <p>Nike</p>
-    </div>
-    <div class="tap-brand">
-        <p>Dior</p>
-    </div>
-    
-</div>
-<!-- adiddas List -->
-<div class="tap-content active" id="adidaslist" >
-    
-</div>
-
-<!-- Nike List -->
-<div class="tap-content " id="nikelist">
-    
-</div>
-<!-- Dior List -->
-<div class="tap-content " id="diorlist">
-    
-</div>
-<!-- <div class="partner">
-    <h1>OUR PARTNER</h1>
-</div> -->
-<script src="./index.js"></script>
+            <div id="orderlist">
+                <p id="date">123</p>
+                <p id="unit">123</p>
+                <p id="Total">123</p>
+            </div>
+        
+       </div>
+       <script src="./Profile.js"></script>
 </body>
-
 </html>

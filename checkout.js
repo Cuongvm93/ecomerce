@@ -188,7 +188,7 @@ if (flag==0) {
   // getdate
   var currentdate = new Date();
 var datetime = currentdate.getDate() + "/" + currentdate.getMonth() 
-+ "/" + currentdate.getFullYear() + " " 
++ "/" + currentdate.getFullYear() +" "+ "-"+" " 
 + currentdate.getHours() + ":" 
 + currentdate.getMinutes()
 console.log(datetime);

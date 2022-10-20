@@ -65,6 +65,7 @@ align-items: center;
 .div1:hover{
     background-color: antiquewhite;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 .header p {
@@ -84,6 +85,43 @@ align-items: center;
     cursor: pointer;
 
 }
+.changepass{
+    position: absolute;
+    align-items: center;
+    padding: 7px 0 0 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    box-shadow: 2px black;
+    width: 180px;
+    height:260px;
+    background-color: rgb(237, 236, 236);
+    border-radius: 10px;
+    
+    left: 600px;
+    top:150px;
+    z-index: 20;
+    visibility: hidden;
+}
+.changepass input{
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+
+}
+.btnchangepass{
+    align-items: center;
+}
+
+    
+
+.changepass button{
+    border-radius: 5px;
+}
+.changepass button:hover{
+    background-color: orange;
+    
+}
 .circle-cart{
     position: absolute;
     top:3px;
@@ -93,6 +131,7 @@ align-items: center;
     border-radius: 7px;
     background-color: orange;
     display: none;
+    
 }
 #btLogin{
     position: absolute;
@@ -185,8 +224,10 @@ align-items: center;
     height: 400px;
     padding: 0px;
     border-radius: 10px;
+    object-fit:fill;
 
 }
+
 
 #menuBar {
     position: absolute;

@@ -31,6 +31,7 @@
     width: 100px;
     color: silver;
     font-size: 22px;
+    cursor: pointer;
 }
 .header p {
     position: absolute;
@@ -42,12 +43,99 @@
 }
 .fi-rr-shopping-bag{
     position: absolute;
-    left: 1100px;
+    left: 1130px;
     color: silver;
     top: 27px;
     font-size: 24px;
     cursor: pointer;
 
+}
+.dropdown{
+    
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #f1f1f1;
+    width: 100px;
+    height: 80px;
+    
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 6px;
+    top:53px;
+    left: 997px;
+    visibility:hidden;
+
+}
+.div1{
+    
+    font-size: 11px;
+    padding: 3px 3px 5px 3px;
+    font-family: roboto;
+align-items: center;
+}
+.div1:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.changepass{
+    position: absolute;
+    align-items: center;
+    padding: 7px 0 0 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    box-shadow: 2px black;
+    width: 180px;
+    height:260px;
+    background-color: rgb(237, 236, 236);
+    border-radius: 10px;
+    
+    left: 600px;
+    top:150px;
+    z-index: 20;
+    visibility: hidden;
+}
+.changepass input{
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+
+}
+.btnchangepass{
+    align-items: center;
+}
+
+    
+
+.changepass button{
+    border-radius: 5px;
+}
+.changepass button:hover{
+    background-color: orange;
+    
+}
+#btLogin{
+    position: absolute;
+    left: 1050px;
+    top:31px;
+    cursor: pointer;
+}
+#btLogin:hover{
+    text-decoration: underline;
+}
+#btSignup{
+    position: absolute;
+    left: 1110px;
+    top:31px;
+    cursor: pointer;
+}
+#btSignup:hover{
+    text-decoration: underline;
 }
         .productShow{
          position: absolute;
