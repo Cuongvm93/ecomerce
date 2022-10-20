@@ -25,8 +25,13 @@
         }
         if (i==0) {
             localStorage.setItem("boolLogin","true")
-            window.location.href="index.html"
             localStorage.setItem("chao",data[j].user)
+            if (localStorage.getItem("productChoice") ==null) { // check xem đã choice product chưa
+                window.location.href="index.html"
+            }else{
+                window.location.href="productPage.html"
+            }
+            
             // option thêm 1 đoạn boollogin nua, neu nó true khi nguoi dùng login trang thì moi hiện username           
         }
         

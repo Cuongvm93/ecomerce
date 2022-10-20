@@ -20,7 +20,7 @@
         <input type="text" placeholder="Search product...">
         <i class="fa-solid fa-user" onclick="clickuser()"></i>
         <div class="dropdown" id="dropdown">
-            <div class="div1">Profile</div>
+            <div class="div1" onclick="profile()">Profile</div>
             <div class="div1" onclick="changepass()">Change password</div>
             <div class="div1" onclick="logout()">Sign out</div>
         </div>
@@ -79,6 +79,7 @@
         </div>
     </div>
     <script>
+        let login = localStorage.getItem("boolLogin")
         // Get Id product Choice
        let x= localStorage.getItem("productChoice")
        console.log(x);
@@ -129,12 +130,17 @@
     document.getElementById("title").textContent=arr[x].title
     document.getElementById("des").innerHTML=arr[x].des
     document.getElementById("price").innerText=`Price: ${new Intl.NumberFormat('de-DE').format(arr[x].price)} $`
+   
+   
     //add to cart
     let add=document.querySelectorAll(".button")
     console.log(add);
     console.log(add[0].children[0]);
     add[0].children[0].onclick= function () {
-        let currentArr=[]
+        if (login!=="true") {
+            alert("You must login first")
+        }else{
+            let currentArr=[]
         currentArr=JSON.parse(localStorage.getItem("newcart"))
         console.log(currentArr);
         if (currentArr==[]) {
@@ -156,9 +162,10 @@
             }
         }
         localStorage.setItem("newcart",JSON.stringify(currentArr))
+        }
     }
       
-    let login = localStorage.getItem("boolLogin")
+    
     function clickuser() {
     
     if (login == "true") {
@@ -249,9 +256,14 @@ function cancel() {
 
     // buy now Button
     function buynow() {
-        localStorage.setItem("checkoutFromCart","false")
+        if (login!=="true") {
+            alert("You must login first")
+        }else{
+            localStorage.setItem("checkoutFromCart","false")
         localStorage.setItem("checkoutfromoutsidecart",x)
-        window.location.href="chechout.html"
+        window.location.href="chechout.html"  
+        }
+        
     }
 
     // Hide - Visible Icon Cart
@@ -286,7 +298,10 @@ function logout() {
     
     location.reload()
 }
-
+// click Profile
+function profile() {
+    window.location.href="Profile.html"
+}
 
 //funtion show UserName and Cart
 if (localStorage.getItem("boolLogin")=="true") {
@@ -296,6 +311,10 @@ if (localStorage.getItem("boolLogin")=="true") {
     let user = localStorage.getItem("chao")
     let hi = document.getElementById("sayhi");
     hi.textContent = user
+}
+
+function cartpage() {
+    window.location.href="cart.html"
 }
     </script>
     

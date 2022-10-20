@@ -109,21 +109,21 @@ function gologin() {
 function gosingup() {
     window.location.href="signup.html"
 }
-if (localStorage.getItem("boolLogin")=="true") {
-    document.getElementById("btLogin").style.display="none"
-    document.getElementById("btSignup").style.display="none"
-}
-else{
-    document.getElementById("btLogin").style.display="block"
-    document.getElementById("btSignup").style.display="block"
-}
+// if (localStorage.getItem("boolLogin")=="true") {
+//     document.getElementById("btLogin").style.display="none"
+//     document.getElementById("btSignup").style.display="none"
+// }
+// else{
+//     document.getElementById("btLogin").style.display="block"
+//     document.getElementById("btSignup").style.display="block"
+// }
 // Function Log out
 function logout() {
     localStorage.removeItem("chao")
     localStorage.removeItem("boolLogin")
     
     window.location.href="index.html"
-}
+}   
 
 
 //funtion show UserName and Cart

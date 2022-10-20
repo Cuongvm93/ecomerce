@@ -16,9 +16,42 @@
   <div class="header">
     <img src="./dior/finaltini-removebg-preview.png" alt="">
     <input type="text" placeholder="Search product...">
-    <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-user" onclick="clickuser()"></i>
+    <div class="dropdown" id="dropdown">
+      <div class="div1" onclick="profile()">Profile</div>
+      <div class="div1" onclick="changepass()">Change password</div>
+      <div class="div1" onclick="logout()">Sign out</div>
+  </div>
     <p id="sayhi"></p>
   </div>
+  <!-- <div id="btLogin" style="font-style:roboto ;" onclick="gologin()">Login</div>
+  <div id="btSignup" style="font-style:roboto ;" onclick="gosignup()">Sign Up</div> -->
+</div>
+ <div class="changepass" id="changepass">
+  <div>
+       <label for="">Fill Email</label>
+       <input type="text" placeholder="Email" id="emailcheck">
+       <p id="emailnotmatch" style="font-style:italic; color: Red; font-size: 11px; display: none; margin: 2px;">Email not found</p>
+  </div>
+  <div>
+      <label for="">Old Password</label>        
+      <input type="text" placeholder="Old password" id="oldpass">
+      <p id="passnotmatch" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px">Pass do not exist</p>
+  </div>
+
+  <div>
+  <label for="">New Password</label>
+  <input type="text" placeholder="New password" id="newpass">
+  <p id="passincorrect" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px">Pass incorrect</p>
+  <p id="matcholdpass" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px"> Do not match with old pass</p>
+  <p id="done" style="font-style:italic; color: green; font-size: 15px;display: none;margin: 2px;font-weight: 500;">Done!</p>
+  </div>
+  
+  <div class="btnchangepass">
+      <button style="width: 80px; height: 20px;" onclick="update()">Update</button>
+  <button style="width: 80px; height: 20px;" onclick="cancel()">Cancel</button>
+  </div>
+ </div>
   <h1>My Cart</h1>
   <div class="tabbleorder">
     <div class="title0">
@@ -168,6 +201,104 @@
       localStorage.setItem("checkoutFromCart","true")
       window.location.href="chechout.html"
     }
+
+    function clickuser() {
+    
+    
+       
+        let a = document.getElementById("dropdown")
+        console.log(a.style.visibility);
+        if (a.style.visibility === "hidden") {
+            a.style.visibility = "visible";
+        }
+        else {
+            a.style.visibility = "hidden"
+        }
+    
+
+
+}  
+    // Funtion Log Out
+function logout() {
+    localStorage.removeItem("chao")
+    localStorage.removeItem("boolLogin")
+    window.location.href="index.html"
+}
+  // Funtion Change Pass
+  function changepass() {
+    document.getElementById("changepass").style.visibility="visible"
+    document.getElementById("dropdown").style.visibility="hidden"
+
+}
+//Update password
+function update() {
+let flag=0;
+let i=0;
+let arremail=[];
+let arrpass=[];
+let re =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+let mail=document.getElementById("emailcheck").value
+let pass=document.getElementById("oldpass").value
+let newpass=document.getElementById("newpass").value
+let user=localStorage.getItem("chao")
+let datauser=JSON.parse(localStorage.getItem("cuong"))
+// console.log(datauser[1].user);
+for (let index = 1; index < datauser.length; index++) {
+    if (user==datauser[index].user) {
+        i=index
+        break;
+        
+    }
+    
+}  
+// console.log(i);
+
+if (mail!== datauser[i].email) {
+    flag=1
+    document.getElementById("emailnotmatch").style.display="block"
+}
+else{
+    document.getElementById("emailnotmatch").style.display="none"
+}   
+if (pass!==datauser[i].pass) {
+    flag=1
+    document.getElementById("passnotmatch").style.display="block"
+}else{
+    document.getElementById("passnotmatch").style.display="none"
+}
+if (!newpass.match(re)) {
+    flag=1
+    document.getElementById("passincorrect").style.display="block"
+}else{
+    document.getElementById("passincorrect").style.display="none"
+}
+
+ if (pass!=""&&newpass===pass) {
+    flag=1
+    document.getElementById("matcholdpass").style.display="block"
+ }else{
+    document.getElementById("matcholdpass").style.display="none"
+ }
+ console.log(flag);
+ if (flag==0) {
+    datauser[i].pass=newpass
+    localStorage.setItem("cuong",JSON.stringify(datauser))
+    document.getElementById("done").style.display="block"
+    
+    setTimeout(() => {
+        document.getElementById("changepass").style.display="none"
+      }, 2000)
+ }
+}
+
+// Funtion cancel
+function cancel() {
+    document.getElementById("changepass").style.visibility="hidden"
+}
+function profile(params) {
+    window.location.href="Profile.html"
+}
+
   </script>
 </body>
 
