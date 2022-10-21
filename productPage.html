@@ -144,8 +144,8 @@
             let currentArr=[]
         currentArr=JSON.parse(localStorage.getItem(`${user}newcart`))
         console.log(currentArr);
-        if (currentArr==[]) {
-            
+        if (currentArr==null) {
+            currentArr=[]
             currentArr.push([arr[x],1])
         }else
         {
