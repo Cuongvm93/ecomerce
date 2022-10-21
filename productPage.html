@@ -17,7 +17,7 @@
     <div class="header">
         <img src="./dior/finaltini-removebg-preview.png" alt="" onclick="clicklogo()">
 
-        <input type="text" placeholder="Search product...">
+        <input type="text" placeholder="Search product..." id="input-search">
         <i class="fa-solid fa-user" onclick="clickuser()"></i>
         <div class="dropdown" id="dropdown">
             <div class="div1" onclick="profile()">Profile</div>
@@ -325,6 +325,32 @@ function clicklogo(params) {
 function gosignup(params) {
     window.location.href="signup.html"
 }
+
+// search
+
+let inputSearch=document.getElementById("input-search")
+
+inputSearch.addEventListener('keypress', function(a){
+    let searcharrr=[]
+   if (a.keyCode==13) {
+    let valueSearch=document.getElementById("input-search").value
+    if (valueSearch!="") {
+        for (let index = 0; index < arr.length; index++) {
+            if ((arr[index].title.toLowerCase()).includes((valueSearch).toLowerCase())) {
+               
+             searcharrr.push(index)
+             console.log(111);
+            }
+             
+         }
+         searcharrr.push(valueSearch)
+         localStorage.setItem("searchList",JSON.stringify(searcharrr))
+         window.location.href="search.html"
+    }
+    
+   }
+})
+
     </script>
     
 </body>

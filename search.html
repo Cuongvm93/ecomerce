@@ -286,7 +286,7 @@
     </style>
     <div class="header">
         <img src="./dior/finaltini-removebg-preview.png" alt="" onclick="clicklogo()">
-        <!--   -->
+        <input type="text" placeholder="Search product..." id="input-search">
         <i class="fa-solid fa-user" onclick="clickuser()"></i>
         <div class="dropdown" id="dropdown">
             <div class="div1" onclick="profile()">Profile</div>
@@ -351,7 +351,7 @@
         let listindex = JSON.parse(localStorage.getItem("searchList"))
         for (let i = 0; i < listindex.length - 1; i++) {
             document.getElementById("searchlist").innerHTML += `
-   <div id="${data[listindex[i]].id}" class="cardproduct">
+   <div id="${[listindex[i]]}" class="cardproduct">
          <img src=${data[listindex[i]].img} alt="">
         <p style="font-size:15px ;text-align:center">${data[listindex[i]].title}</p>
         <p style="font-size: 15px; font-weight: bold;text-align:center"">${new Intl.NumberFormat('de-DE').format(data[listindex[i]].price)} $</p>
@@ -386,12 +386,12 @@
 }
 // Onclick product Card -- done
 let x=document.querySelectorAll(".cardproduct")
-console.log(x);
+// console.log(x[0].id);
 
 x.forEach((tap,index)=>{
     tap.children[0].onclick=function () {
         console.log(index);
-        localStorage.setItem("productChoice",index)
+        localStorage.setItem("productChoice",tap.id)
         window.location.href="productPage.html"
     }
 })
@@ -427,20 +427,20 @@ x.forEach((tap,index)=>{
         // console.log(cart);
         if (cart==null) {
             cart=[]
-            cart.push([data[index],1])
+            cart.push([data[tap.id],1])
             console.log(cart);
         }else{
             let flag =0;
             for (let i = 0; i < cart.length; i++) {
                 //JSON.stringify(cart[i][0])==JSON.stringify(data[index])
-                if (cart[i][0].id==data[index].id) {
+                if (cart[i][0].id==data[tap.id].id) {
                     cart[i][1]++
                     flag=1;
                 }
                 
             } 
             if (flag==0) {
-                cart.push([data[index],1])
+                cart.push([data[tap.id],1])
             }
         }
         
@@ -459,13 +459,14 @@ function cartpage() {
 
 // buy now
 let buynow=document.querySelectorAll(".buy-now")
+console.log(buynow);
 buynow.forEach((tap,index)=>{
     tap.onclick=function () {
         if (login!=="true") {
             alert("You must login fist")
         }else{
             localStorage.setItem("checkoutFromCart","false")
-            localStorage.setItem("checkoutfromoutsidecart",index)
+            localStorage.setItem("checkoutfromoutsidecart",x[index].id)
             window.location.href="chechout.html"
         }
 
@@ -612,6 +613,31 @@ else{
 function clicklogo(params) {
   window.location.href="index.html"
 }
+
+// search
+
+let inputSearch=document.getElementById("input-search")
+
+inputSearch.addEventListener('keypress', function(a){
+    let searcharrr=[]
+   if (a.keyCode==13) {
+    let valueSearch=document.getElementById("input-search").value
+    if (valueSearch!="") {
+        for (let index = 0; index < data.length; index++) {
+            if ((data[index].title.toLowerCase()).includes((valueSearch).toLowerCase())) {
+               
+             searcharrr.push(index)
+             console.log(111);
+            }
+             
+         }
+         searcharrr.push(valueSearch)
+         localStorage.setItem("searchList",JSON.stringify(searcharrr))
+         window.location.href="search.html"
+    }
+    
+   }
+})
     </script>
 </body>
 
