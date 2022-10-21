@@ -16,7 +16,8 @@ body{
     width: 210px;
     height: 210px;
     top: -62px;
-    left: 150px
+    left: 150px;
+    cursor: pointer;
 }
 
 .header input {
