@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+
+</head>
+
+<body>
+    <style>
+        .header {
+            position: absolute;
+            top: 0%;
+            width: 100%;
+            height: 80px;
+
+
+        }
+
+        .header img {
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            top: -62px;
+            left: 150px
+        }
+
+        .header input {
+            position: absolute;
+            background-color: rgb(231, 228, 228);
+            height: 35px;
+            border-radius: 10px;
+            border: none;
+            left: 500px;
+            top: 20px;
+            width: 350px;
+        }
+
+        .fa-user {
+            position: absolute;
+            top: 28px;
+            left: 1000px;
+            height: 100px;
+            width: 100px;
+            color: silver;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            gap: 5px;
+            background-color: #f1f1f1;
+            width: 100px;
+            height: 80px;
+
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 6px;
+            top: 53px;
+            left: 997px;
+            visibility: hidden;
+
+        }
+
+        .div1 {
+
+            font-size: 11px;
+            padding: 3px 3px 5px 3px;
+            font-family: roboto;
+            align-items: center;
+        }
+
+        .div1:hover {
+            background-color: antiquewhite;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .header p {
+            position: absolute;
+            left: 1030px;
+            color: rgba(42, 39, 39, 0.922);
+            top: 9px;
+            font-size: 19px;
+            font-family: roboto;
+        }
+
+        .fi-rr-shopping-bag {
+            position: absolute;
+            left: 1130px;
+            color: silver;
+            top: 27px;
+            font-size: 24px;
+            cursor: pointer;
+
+        }
+
+        .changepass {
+            position: absolute;
+            align-items: center;
+            padding: 7px 0 0 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            box-shadow: 2px black;
+            width: 180px;
+            height: 260px;
+            background-color: rgb(237, 236, 236);
+            border-radius: 10px;
+
+            left: 600px;
+            top: 150px;
+            z-index: 20;
+            visibility: hidden;
+        }
+
+        .changepass input {
+            border-radius: 5px;
+            border: none;
+            height: 25px;
+
+        }
+
+        .btnchangepass {
+            align-items: center;
+        }
+
+
+
+        .changepass button {
+            border-radius: 5px;
+        }
+
+        .changepass button:hover {
+            background-color: orange;
+
+        }
+
+        .circle-cart {
+            position: absolute;
+            top: 3px;
+            right: 0px;
+            width: 7px;
+            height: 7px;
+            border-radius: 7px;
+            background-color: orange;
+            display: none;
+
+        }
+
+        #btLogin {
+            position: absolute;
+            left: 1050px;
+            top: 31px;
+            cursor: pointer;
+        }
+
+        #btLogin:hover {
+            text-decoration: underline;
+        }
+
+        #btSignup {
+            position: absolute;
+            left: 1110px;
+            top: 31px;
+            cursor: pointer;
+        }
+
+        #btSignup:hover {
+            text-decoration: underline;
+
+        }
+
+        .cardproduct {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 284px;
+            height: 412px;
+            margin: auto;
+
+            font-family: roboto;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+
+
+        }
+
+        .cardproduct:hover {
+            width: 300px;
+            height: 450px;
+
+        }
+
+        .cardproduct img {
+            width: 100%;
+            height: 286px;
+
+        }
+
+        .cardproduct button {
+            position: relative;
+            width: 106px;
+            height: 35px;
+            font-size: 15px;
+            font-weight: 400;
+            font-family: roboto;
+            border-radius: 5px;
+            border: 1px;
+            cursor: pointer;
+            left: 35px
+        }
+
+        .cardproduct button:hover {
+            background-color: rgb(172, 168, 168);
+
+        }
+
+        .tap-content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 220px;
+            display: grid;
+            row-gap: 30px;
+
+            grid-template-columns: 400px 400px 400px;
+        }
+        h1{
+            position: absolute;
+            color: rgb(64, 169, 218);
+            font-size: 22px;
+            font-family: roboto;
+            top:100px;
+            left: 100px;
+            font-style: italic;
+        }
+        #cart-logo{
+    position: fixed;
+    right: 50px;
+    top: 500px;
+    display: none;
+    
+ }
+ #cart-logo img{
+    width: 90px;
+    right:90px;
+    cursor: pointer;
+ }
+ #cartcile{
+    position:fixed;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: red;
+    top:513px;
+    align-items: center;
+    padding-top: 6px;
+    padding-left: 10px;
+    box-sizing: border-box;
+ }
+ #cartcount{
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    font-family: roboto;
+   
+ }
+    </style>
+    <div class="header">
+        <img src="./dior/finaltini-removebg-preview.png" alt="" onclick="clicklogo()">
+        <!--   -->
+        <i class="fa-solid fa-user" onclick="clickuser()"></i>
+        <div class="dropdown" id="dropdown">
+            <div class="div1" onclick="profile()">Profile</div>
+            <div class="div1" onclick="changepass()">Change password</div>
+            <div class="div1" onclick="logout()">Sign out</div>
+        </div>
+        <p id="sayhi"></p>
+        <i class="fi fi-rr-shopping-bag" onclick="cartpage()">
+            <div class="circle-cart">
+
+
+            </div>
+        </i>
+        <div id="btLogin" style="font-style:roboto ;" onclick="gologin()">Login</div>
+        <div id="btSignup" style="font-style:roboto ;" onclick="gosignup()">Sign Up</div>
+    </div>
+    <div class="changepass" id="changepass">
+        <div>
+            <label for="">Fill Email</label>
+            <input type="text" placeholder="Email" id="emailcheck">
+            <p id="emailnotmatch" style="font-style:italic; color: Red; font-size: 11px; display: none; margin: 2px;">
+                Email not found</p>
+        </div>
+        <div>
+            <label for="">Old Password</label>
+            <input type="text" placeholder="Old password" id="oldpass">
+            <p id="passnotmatch" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px">Pass
+                do not exist</p>
+        </div>
+
+        <div>
+            <label for="">New Password</label>
+            <input type="text" placeholder="New password" id="newpass">
+            <p id="passincorrect" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px">Pass
+                incorrect</p>
+            <p id="matcholdpass" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px"> Do
+                not match with old pass</p>
+            <p id="done"
+                style="font-style:italic; color: green; font-size: 15px;display: none;margin: 2px;font-weight: 500;">
+                Done!</p>
+        </div>
+
+        <div class="btnchangepass">
+            <button style="width: 80px; height: 20px;" onclick="update()">Update</button>
+            <button style="width: 80px; height: 20px;" onclick="cancel()">Cancel</button>
+        </div>
+    </div>
+    <h1 id="alert"></h1>
+    <div class="tap-content " id="searchlist">
+
+    </div>
+    <div id="cart-logo" onclick="cartlogo()" >
+        <img src="./adidas/shopping-bag.png" alt="">
+        <div id="cartcile">
+           <p id="cartcount">0</p>
+        </div>
+       </div>
+    <script>
+        var user = localStorage.getItem("chao")
+
+        let data = JSON.parse(localStorage.getItem("data"))
+        let listindex = JSON.parse(localStorage.getItem("searchList"))
+        for (let i = 0; i < listindex.length - 1; i++) {
+            document.getElementById("searchlist").innerHTML += `
+   <div id="${data[listindex[i]].id}" class="cardproduct">
+         <img src=${data[listindex[i]].img} alt="">
+        <p style="font-size:15px ;text-align:center">${data[listindex[i]].title}</p>
+        <p style="font-size: 15px; font-weight: bold;text-align:center"">${new Intl.NumberFormat('de-DE').format(data[listindex[i]].price)} $</p>
+         <button style="" ><i class="fi fi-rr-shopping-cart-add" ></i> Add to cart</button>
+           <button class="buy-now">Buy Now</button>          
+        `
+
+        }
+        if (listindex.length==1) {
+            document.getElementById("alert").textContent =`No result for search: ${listindex[0]}`
+        }else{
+            document.getElementById("alert").textContent =`This results for search: ${listindex[listindex.length-1]}`
+        }
+        let login = localStorage.getItem("boolLogin")
+
+        // user click button
+     function clickuser() {
+    
+    if (login == "true") {
+       
+        let a = document.getElementById("dropdown")
+        console.log(a.style.visibility);
+        if (a.style.visibility === "hidden") {
+            a.style.visibility = "visible";
+        }
+        else {
+            a.style.visibility = "hidden"
+        }
+    }
+
+
+}
+// Onclick product Card -- done
+let x=document.querySelectorAll(".cardproduct")
+console.log(x);
+
+x.forEach((tap,index)=>{
+    tap.children[0].onclick=function () {
+        console.log(index);
+        localStorage.setItem("productChoice",index)
+        window.location.href="productPage.html"
+    }
+})
+
+// Function add change Cart count
+let cartcount=0;
+let newarrcart=JSON.parse(localStorage.getItem(`${user}newcart`))
+if (newarrcart!=null) {
+    for (let index = 0; index < newarrcart.length; index++) {
+        cartcount += newarrcart[index][1]
+        
+    }
+    console.log(newarrcart);
+    console.log(cartcount);
+    
+    document.getElementById("cartcount").textContent=cartcount
+}
+//ADD TO CART
+// localStorage.removeItem("cart")
+// localStorage.removeItem("newcart")
+let cart=[]
+x.forEach((tap,index)=>{
+    tap.children[3].onclick=function () {
+        if (login!=="true") {
+            alert("You must login first")
+        }else{
+            cart=(JSON.parse(localStorage.getItem(`${user}newcart`)))
+        // console.log(cart);
+        // console.log(cart==null);
+        // let g=JSON.stringify(cart[0][0])
+        // let h=JSON.stringify(data[index])
+        // console.log(g==h);
+        // console.log(cart);
+        if (cart==null) {
+            cart=[]
+            cart.push([data[index],1])
+            console.log(cart);
+        }else{
+            let flag =0;
+            for (let i = 0; i < cart.length; i++) {
+                //JSON.stringify(cart[i][0])==JSON.stringify(data[index])
+                if (cart[i][0].id==data[index].id) {
+                    cart[i][1]++
+                    flag=1;
+                }
+                
+            } 
+            if (flag==0) {
+                cart.push([data[index],1])
+            }
+        }
+        
+        
+        localStorage.setItem(`${user}newcart`,JSON.stringify(cart))
+        cartcount ++
+        document.getElementById("cartcount").textContent=cartcount
+        document.getElementsByClassName("circle-cart")[0].style.display="block";
+        }
+    }
+})
+// Open Cart page
+function cartpage() {
+    window.location.href="cart.html"
+}
+
+// buy now
+let buynow=document.querySelectorAll(".buy-now")
+buynow.forEach((tap,index)=>{
+    tap.onclick=function () {
+        if (login!=="true") {
+            alert("You must login fist")
+        }else{
+            localStorage.setItem("checkoutFromCart","false")
+            localStorage.setItem("checkoutfromoutsidecart",index)
+            window.location.href="chechout.html"
+        }
+
+    }
+})// Function changpass
+function changepass() {
+    document.getElementById("changepass").style.visibility="visible"
+    document.getElementById("dropdown").style.visibility="hidden"
+
+}
+//Update password
+function update() {
+let flag=0;
+let i=0;
+let arremail=[];
+let arrpass=[];
+let re =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+let mail=document.getElementById("emailcheck").value
+let pass=document.getElementById("oldpass").value
+let newpass=document.getElementById("newpass").value
+let user=localStorage.getItem("chao")
+let datauser=JSON.parse(localStorage.getItem("cuong"))
+// console.log(datauser[1].user);
+for (let index = 0; index < datauser.length; index++) {
+    if (user==datauser[index].user) {
+        i=index
+        break;
+        
+    }
+    
+}  
+// console.log(i);
+
+if (mail!== datauser[i].email) {
+    flag=1
+    document.getElementById("emailnotmatch").style.display="block"
+}
+else{
+    document.getElementById("emailnotmatch").style.display="none"
+}   
+if (pass!==datauser[i].pass) {
+    flag=1
+    document.getElementById("passnotmatch").style.display="block"
+}else{
+    document.getElementById("passnotmatch").style.display="none"
+}
+if (!newpass.match(re)) {
+    flag=1
+    document.getElementById("passincorrect").style.display="block"
+}else{
+    document.getElementById("passincorrect").style.display="none"
+}
+
+ if (pass!=""&&newpass===pass) {
+    flag=1
+    document.getElementById("matcholdpass").style.display="block"
+ }else{
+    document.getElementById("matcholdpass").style.display="none"
+ }
+ console.log(flag);
+ if (flag==0) {
+    datauser[i].pass=newpass
+    localStorage.setItem("cuong",JSON.stringify(datauser))
+    document.getElementById("done").style.display="block"
+    
+    setTimeout(() => {
+        document.getElementById("changepass").style.display="none"
+      }, 2000)
+ }
+}
+function cancel() {
+    document.getElementById("changepass").style.visibility="hidden"
+}
+
+// CLick profile icon
+function profile(params) {
+    window.location.href="Profile.html"
+}
+
+// Funtion Signup
+function gosignup(params) {
+    window.location.href="signup.html"
+}
+
+// Show cart count effect
+// window.onscroll = function() {myscroll()};
+// function myscroll() {
+    if (login=="true") {
+        
+        document.getElementById("cart-logo").style.display = "block";
+      } else {
+        
+      
+        document.getElementById("cart-logo").style.display="none"
+      }
+    // }
+
+// open cart logo
+function cartlogo(params) {
+    window.location.href="cart.html"
+}
+
+//funtion show UserName and Cart
+if (localStorage.getItem("boolLogin")=="true") {
+    console.log(localStorage.getItem("boolLogin"));
+    // document.getElementById("btLogin").style.display = "none"
+    // document.getElementById("btSignup").style.display = "none"
+    
+    let hi = document.getElementById("sayhi");
+    hi.textContent = user
+}
+// console.log(user);
+// Funtion Log Out
+function logout() {
+    localStorage.removeItem("chao")
+    localStorage.removeItem("boolLogin")
+    
+    location.reload()
+}
+
+// Hide - Visible Icon Cart
+if (localStorage.getItem("boolLogin")!="true") {
+    document.getElementsByClassName("fi-rr-shopping-bag")[0].style.display="none"
+
+}else{
+    document.getElementsByClassName("fi-rr-shopping-bag")[0].style.display="block"
+}
+
+// funtion Login
+function gologin() {
+    window.location.href="login.html"
+}
+function gosingup() {
+    window.location.href="signup.html"
+}
+if (localStorage.getItem("boolLogin")=="true") {
+    document.getElementById("btLogin").style.display="none"
+    document.getElementById("btSignup").style.display="none"
+}
+else{
+    document.getElementById("btLogin").style.display="block"
+    document.getElementById("btSignup").style.display="block"
+}
+function clicklogo(params) {
+  window.location.href="index.html"
+}
+    </script>
+</body>
+
+</html>

@@ -341,3 +341,28 @@ function cartpage() {
 function clicklogo(params) {
   window.location.href="index.html"
 }
+
+// search
+let data=JSON.parse(localStorage.getItem("data"))
+let inputSearch=document.getElementById("input-search")
+
+inputSearch.addEventListener('keypress', function(a){
+    let searcharrr=[]
+   if (a.keyCode==13) {
+    let valueSearch=document.getElementById("input-search").value
+    if (valueSearch!="") {
+        for (let index = 0; index < data.length; index++) {
+            if ((data[index].title.toLowerCase()).includes((valueSearch).toLowerCase())) {
+               
+             searcharrr.push(index)
+             console.log(111);
+            }
+             
+         }
+         searcharrr.push(valueSearch)
+         localStorage.setItem("searchList",JSON.stringify(searcharrr))
+         window.location.href="search.html"
+    }
+    
+   }
+})
