@@ -1,5 +1,5 @@
 let login = localStorage.getItem("boolLogin")
-var data=JSON.parse(localStorage.getItem("cuong"))
+var data=JSON.parse(localStorage.getItem("data"))
 function clickuser() {
 
 if (login == "true") {
