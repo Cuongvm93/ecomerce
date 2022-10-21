@@ -264,11 +264,11 @@ if (localStorage.getItem("boolLogin")=="true") {
     console.log(localStorage.getItem("boolLogin"));
     // document.getElementById("btLogin").style.display = "none"
     // document.getElementById("btSignup").style.display = "none"
-    let user = localStorage.getItem("chao")
+    var user = localStorage.getItem("chao")
     let hi = document.getElementById("sayhi");
     hi.textContent = user
 }
-
+// console.log(user);
 // Funtion Log Out
 function logout() {
     localStorage.removeItem("chao")
@@ -415,17 +415,32 @@ x.forEach((tap,index)=>{
     }
 })
 
+// Function add change Cart count
+let cartcount=0;
+let newarrcart=JSON.parse(localStorage.getItem(`${user}newcart`))
+for (let index = 0; index < newarrcart.length; index++) {
+    cartcount += newarrcart[index][1]
+    
+}
+console.log(newarrcart);
+console.log(cartcount);
+
+document.getElementById("cartcount").textContent=cartcount
+
+
+
+
+
 //ADD TO CART
 // localStorage.removeItem("cart")
 // localStorage.removeItem("newcart")
-
 let cart=[]
 x.forEach((tap,index)=>{
     tap.children[3].onclick=function () {
         if (login!=="true") {
             alert("You must login first")
         }else{
-            cart=(JSON.parse(localStorage.getItem("newcart")))
+            cart=(JSON.parse(localStorage.getItem(`${user}newcart`)))
         // console.log(cart);
         // console.log(cart==null);
         // let g=JSON.stringify(cart[0][0])
@@ -452,7 +467,9 @@ x.forEach((tap,index)=>{
         }
         
         
-        localStorage.setItem("newcart",JSON.stringify(cart))
+        localStorage.setItem(`${user}newcart`,JSON.stringify(cart))
+        cartcount ++
+        document.getElementById("cartcount").textContent=cartcount
         document.getElementsByClassName("circle-cart")[0].style.display="block";
         }
     }
@@ -466,7 +483,7 @@ function cartpage() {
 let buynow=document.querySelectorAll(".buy-now")
 buynow.forEach((tap,index)=>{
     tap.onclick=function () {
-        if (login!=true) {
+        if (login!=="true") {
             alert("You must login fist")
         }else{
             localStorage.setItem("checkoutFromCart","false")
@@ -476,7 +493,7 @@ buynow.forEach((tap,index)=>{
 
     }
 })
-
+localStorage.removeItem("")
 // Function changpass
 function changepass() {
     document.getElementById("changepass").style.visibility="visible"
@@ -551,3 +568,35 @@ function cancel() {
 function profile(params) {
     window.location.href="Profile.html"
 }
+
+// Funtion Signup
+function gosignup(params) {
+    window.location.href="signup.html"
+}
+
+// localStorage.removeItem("newcart")
+
+
+// let a={
+//     name: "cuong",
+//     age:123
+// }
+// console.log(JSON.stringify(a.cuong));
+
+
+// Show cart count effect
+window.onscroll = function() {myscroll()};
+function myscroll() {
+    if (document.documentElement.scrollTop>330) {
+        
+        document.getElementById("cart-logo").style.display = "block";
+      } else {
+        document.getElementById("cart-logo").style.display="none"
+      }
+    }
+
+// open cart logo
+function cartlogo(params) {
+    window.location.href="cart.html"
+}
+

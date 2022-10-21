@@ -141,14 +141,14 @@ let datainfo= JSON.parse(localStorage.getItem("cuong"))
 let currentUser=localStorage.getItem("chao")
 for (let index = 1; index < datainfo.length; index++) {
     if (datainfo[index].user==currentUser) {
-        document.getElementById("fullname").innerHTML =datainfo[index].name
-        document.getElementById("username").innerHTML=currentUser
-        document.getElementById("email").innerHTML=datainfo[index].email
-        document.getElementById("tel").innerHTML=datainfo[index].phone
-        document.getElementById("adress").innerHTML=datainfo[index].Adress
-        document.getElementById("date").innerHTML=datainfo[index].OrderRecently.date
-        document.getElementById("unit").innerHTML=`Item: ${datainfo[index].OrderRecently.qty}`
-        document.getElementById("Total").innerHTML=`Tolal: ${new Intl.NumberFormat('de-DE').format(datainfo[index].OrderRecently.total)} $` 
+        document.getElementById("fullname").textContent =datainfo[index].name
+        document.getElementById("username").textContent=currentUser
+        document.getElementById("email").textContent=datainfo[index].email
+        document.getElementById("tel").textContent=datainfo[index].phone
+        document.getElementById("adress").textContent=datainfo[index].Adress
+        document.getElementById("date").textContent=datainfo[index].OrderRecently.date
+        document.getElementById("unit").textContent=`Item: ${datainfo[index].OrderRecently.qty}`
+        document.getElementById("Total").textContent=`Tolal: ${new Intl.NumberFormat('de-DE').format(datainfo[index].OrderRecently.total)} $` 
     }
     
 }
@@ -156,4 +156,9 @@ for (let index = 1; index < datainfo.length; index++) {
 // click cart icon
 function cartpage() {
     window.location.href="cart.html"
+}
+
+//click logo
+function clicklogo(params) {
+    window.location.href="index.html"
 }

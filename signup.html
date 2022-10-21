@@ -24,7 +24,7 @@
             </div>
             <div class="username">
                 <i class="fa-sharp fa-solid fa-check" id="tick"></i>
-                <input type="password" required oninput="checkpass()" id="pw">
+                <input type="password" required oninput="checkpass()" id="pw " onfocusout="clickout()">
                 <span></span>
                 <label> Password</label>
             </div>
@@ -35,7 +35,8 @@
                 <label for="">Email</label>
             </div>
         </form>
-
+        <p id="erroruser">User name đã tồn tại</p>
+        <p id="erroremail">email đã tồn tại</p>
         <i class="fa-solid fa-eye" id="eye" onclick="see()"></i>
 
         <div id="pannel">

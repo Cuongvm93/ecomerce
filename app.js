@@ -57,7 +57,10 @@ function checkemail() {
 }
 
 
-
+// focus out
+function clickout(params) {
+    document.getElementById("pannel").style.display="none"
+}
 function checkpass() {//khi input pass thì nó chỉ chạy cái funtion này nên log checkpass() vòng ngoài ko được gọi nữa vì sự kiên oninput gắn call cái funton checkemail() này
     var i = 0;
     document.getElementById("pannel").style.display = "block";
@@ -94,8 +97,8 @@ function checkpass() {//khi input pass thì nó chỉ chạy cái funtion này n
         i = 1;
     }
     if (i == 0) {
-        document.getElementById("tick").style.display = ("block")
-
+        document.getElementById("tick").style.display = "block"
+        document.getElementById("pannel").style.display="none"
 
     }
     else {
@@ -107,7 +110,7 @@ function checkpass() {//khi input pass thì nó chỉ chạy cái funtion này n
     return i;
     
 }
-
+let a= localStorage.getItem("cuong")
 function signup() {
     console.log(checkemail());
     let email1=document.getElementById("check").value;
@@ -121,8 +124,20 @@ function signup() {
     }
    info.push(ojb)
    console.log(info);
-if (checkemail()==1&& checkpass()==0 ) {
-   let a= localStorage.getItem("    ")
+// function check user
+let newarr=JSON.parse(a)
+let checkuser=0;
+for (let index = 1; index < newarr.length; index++) {
+    if (newarr[index].user==user) {
+        document.getElementById("erroruser").style.display="block"
+        checkuser=1
+    }
+    
+}
+    
+
+if (checkemail()==1&& checkpass()==0 &&checkuser==0 ) {
+//    let a= localStorage.getItem("cuong")
    
 
    if (a==null) {
@@ -132,10 +147,10 @@ if (checkemail()==1&& checkpass()==0 ) {
    }else{
      let getinfo=JSON.parse(localStorage.getItem("cuong"))
      let flag=0;
-    for (let index = 0; index <getinfo.length; index++) {
+    for (let index = 1; index <getinfo.length; index++) {
         
         if (email1==getinfo[index].email) {
-            alert("email da ton tai")
+            document.getElementById("erroremail").style.display="block"
             flag=1;
         }
         

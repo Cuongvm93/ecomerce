@@ -14,7 +14,7 @@
 
 <body>
   <div class="header">
-    <img src="./dior/finaltini-removebg-preview.png" alt="">
+    <img src="./dior/finaltini-removebg-preview.png" alt="" onclick="clicklogo()">
     <input type="text" placeholder="Search product...">
     <i class="fa-solid fa-user" onclick="clickuser()"></i>
     <div class="dropdown" id="dropdown">
@@ -86,7 +86,8 @@
 
 
   <script>
-    let arr = localStorage.getItem("newcart")
+    var user=localStorage.getItem("chao")
+    let arr = localStorage.getItem(`${user}newcart`)
     arr = JSON.parse(arr)
     let x = document.getElementById("cartpanel")
     for (let index = 0; index < arr.length; index++) {
@@ -112,7 +113,7 @@
       // let hi = document.getElementById("sayHi");
       // hi.textContent = user
     }
-    let user = localStorage.getItem("chao")
+    
     let hi = document.getElementById("sayhi");
     hi.textContent = user
 
@@ -122,9 +123,9 @@
     let r = document.querySelectorAll(".remove")
     r.forEach((tap, index) => {
       tap.onclick = function () {
-        newarr = JSON.parse(localStorage.getItem("newcart"))
+        newarr = JSON.parse(localStorage.getItem(`${user}newcart`))
         newarr.splice(index, 1)
-        localStorage.setItem("newcart", JSON.stringify(newarr))
+        localStorage.setItem(`${user}newcart`, JSON.stringify(newarr))
         location.reload();
       }
     })
@@ -135,9 +136,9 @@
     // console.log(add);
     add.forEach((tap, index) => {
       tap.onclick = function () {
-        arrunit = JSON.parse(localStorage.getItem("newcart"))
+        arrunit = JSON.parse(localStorage.getItem(`${user}newcart`))
         arrunit[index][1]++
-        localStorage.setItem("newcart", JSON.stringify(arrunit))
+        localStorage.setItem(`${user}newcart`, JSON.stringify(arrunit))
         location.reload();
       }
 
@@ -149,9 +150,12 @@
     // console.log(add);
     minus.forEach((tap, index) => {
       tap.onclick = function () {
-        arrminus = JSON.parse(localStorage.getItem("newcart"))
+        arrminus = JSON.parse(localStorage.getItem(`${user}newcart`))
         arrminus[index][1]--
-        localStorage.setItem("newcart", JSON.stringify(arrminus))
+        if (arrminus[index][1]==-1) {
+          return;
+        }
+        localStorage.setItem(`${user}newcart`, JSON.stringify(arrminus))
         location.reload();
       }
 
@@ -163,7 +167,7 @@
     let fee = 0;
     let total = 0;
 
-    let dataCart = JSON.parse(localStorage.getItem("newcart"))
+    let dataCart = JSON.parse(localStorage.getItem(`${user}newcart`))
     for (let index = 0; index < dataCart.length; index++) {
       subTotal += dataCart[index][1] * dataCart[index][0].price
 
@@ -297,6 +301,10 @@ function cancel() {
 }
 function profile(params) {
     window.location.href="Profile.html"
+}
+// click logo
+function clicklogo(params) {
+  window.location.href="index.html"
 }
 
   </script>

@@ -394,3 +394,36 @@ align-items: center;
     top:auto
 
  }
+ #cart-logo{
+    position: fixed;
+    right: 50px;
+    top: 500px;
+    display: none;
+    
+ }
+ #cart-logo img{
+    width: 90px;
+    right:90px;
+    cursor: pointer;
+ }
+ #cartcile{
+    position:fixed;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: red;
+    top:513px;
+    align-items: center;
+    padding-top: 6px;
+    padding-left: 10px;
+    box-sizing: border-box;
+ }
+ #cartcount{
+    color:white;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    font-family: roboto;
+   
+ }

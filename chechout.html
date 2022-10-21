@@ -16,12 +16,42 @@
 </head>
 <body>
     <div class="header">
-        <img src="./dior/finaltini-removebg-preview.png" alt="">
+        <img src="./dior/finaltini-removebg-preview.png" alt="" onclick="clicklogo()">
         <input type="text" placeholder="Search product...">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user" onclick="clickuser()"></i>
+        <div class="dropdown" id="dropdown">
+            <div class="div1-1" onclick="profile()">Profile</div>
+            <div class="div1-1" onclick="changepass()">Change password</div>
+            <div class="div1-1" onclick="logout()">Sign out</div>
+        </div>
         <p id="sayhi"></p>
         <i class="fi fi-rr-shopping-bag" onclick="cartpage()"></i>
       </div>
+      <div class="changepass" id="changepass">
+        <div>
+             <label for="">Fill Email</label>
+             <input type="text" placeholder="Email" id="emailcheck">
+             <p id="emailnotmatch" style="font-style:italic; color: Red; font-size: 11px; display: none; margin: 2px;">Email not found</p>
+        </div>
+        <div>
+            <label for="">Old Password</label>        
+            <input type="text" placeholder="Old password" id="oldpass">
+            <p id="passnotmatch" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px">Pass do not exist</p>
+        </div>
+
+        <div>
+        <label for="">New Password</label>
+        <input type="text" placeholder="New password" id="newpass">
+        <p id="passincorrect" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px">Pass incorrect</p>
+        <p id="matcholdpass" style="font-style:italic; color: Red; font-size: 11px;display: none;margin: 2px"> Do not match with old pass</p>
+        <p id="done" style="font-style:italic; color: green; font-size: 15px;display: none;margin: 2px;font-weight: 500;">Done!</p>
+        </div>
+        
+        <div class="btnchangepass">
+            <button style="width: 80px; height: 20px;" onclick="update()">Update</button>
+        <button style="width: 80px; height: 20px;" onclick="cancel()">Cancel</button>
+        </div>
+       </div>
       <h1>Checkout</h1>
       <div class="info">
         <div class="title">

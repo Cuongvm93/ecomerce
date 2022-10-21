@@ -3,13 +3,13 @@ let discount = 0;
 let fee = 0;
 let total = 0;
 let Quantity=0
-
+var user=localStorage.getItem("chao")
 
 // check from cart
 let check=localStorage.getItem("checkoutFromCart")
 console.log(check=="true");
 if (check=="true") {
-    let dataCart=localStorage.getItem("newcart")
+    let dataCart=localStorage.getItem(`${user}newcart`)
 dataCart=JSON.parse(dataCart)
 // console.log(data);
 let listOder=document.getElementById("product-list")
@@ -218,7 +218,121 @@ localStorage.setItem("cuong",JSON.stringify(datauser))
 
 
   
-console.log(JSON.stringify(b));
+// console.log(JSON.stringify(b));
 
-const d=new date()
-console.log(d);
+// const d=new date()
+// console.log(d);
+
+function logout() {
+  localStorage.removeItem("chao")
+  localStorage.removeItem("boolLogin")
+  window.location.href="index.html"
+}
+function changepass() {
+  document.getElementById("changepass").style.visibility="visible"
+  document.getElementById("dropdown").style.visibility="hidden"
+
+}
+//Update password
+function update() {
+  let flag=0;
+  let i=0;
+  let arremail=[];
+  let arrpass=[];
+  let re =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
+  let mail=document.getElementById("emailcheck").value
+  let pass=document.getElementById("oldpass").value
+  let newpass=document.getElementById("newpass").value
+  let user=localStorage.getItem("chao")
+  let datauser=JSON.parse(localStorage.getItem("cuong"))
+  // console.log(datauser[1].user);
+  for (let index = 1; index < datauser.length; index++) {
+      if (user==datauser[index].user) {
+          i=index
+          break;
+          
+      }
+      
+  }  
+  // console.log(i);
+  
+  if (mail!== datauser[i].email) {
+      flag=1
+      document.getElementById("emailnotmatch").style.display="block"
+  }
+  else{
+      document.getElementById("emailnotmatch").style.display="none"
+  }   
+  if (pass!==datauser[i].pass) {
+      flag=1
+      document.getElementById("passnotmatch").style.display="block"
+  }else{
+      document.getElementById("passnotmatch").style.display="none"
+  }
+  if (!newpass.match(re)) {
+      flag=1
+      document.getElementById("passincorrect").style.display="block"
+  }else{
+      document.getElementById("passincorrect").style.display="none"
+  }
+  
+   if (pass!=""&&newpass===pass) {
+      flag=1
+      document.getElementById("matcholdpass").style.display="block"
+   }else{
+      document.getElementById("matcholdpass").style.display="none"
+   }
+   console.log(flag);
+   if (flag==0) {
+      datauser[i].pass=newpass
+      localStorage.setItem("cuong",JSON.stringify(datauser))
+      document.getElementById("done").style.display="block"
+      
+      setTimeout(() => {
+          document.getElementById("changepass").style.display="none"
+        }, 2000)
+   }
+  }
+  // Funtion cancel
+function cancel() {
+  document.getElementById("changepass").style.visibility="hidden"
+}
+function profile(params) {
+  window.location.href="Profile.html"
+}
+
+function clickuser() {
+    
+    
+       
+  let a = document.getElementById("dropdown")
+  console.log(a.style.visibility);
+  if (a.style.visibility === "hidden") {
+      a.style.visibility = "visible";
+  }
+  else {
+      a.style.visibility = "hidden"
+  }
+
+
+
+}
+// if (localStorage.getItem("boolLogin")) {
+//   // console.log(localStorage.getItem("boolLogin"));
+//   // document.getElementById("btLogin").style.display = "none"
+//   // document.getElementById("btSignup").style.display = "none"
+//   let user = localStorage.getItem("chao")
+//   // let hi = document.getElementById("sayHi");
+//   // hi.textContent = user
+// }
+
+let hi = document.getElementById("sayhi");
+hi.innerHTML = user
+
+function cartpage() {
+  window.location.href="cart.html"
+}
+//click logo
+function clicklogo(params) {
+  window.location.href="index.html"
+}
