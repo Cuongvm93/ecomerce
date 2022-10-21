@@ -291,10 +291,10 @@ function update() {
       datauser[i].pass=newpass
       localStorage.setItem("cuong",JSON.stringify(datauser))
       document.getElementById("done").style.display="block"
-      
+      alert("All Done-Continue Shopping <3")
       setTimeout(() => {
           document.getElementById("changepass").style.display="none"
-        }, 2000)
+        }, 1000)
    }
   }
   // Funtion cancel
