@@ -198,7 +198,7 @@ for (let index = 0; index < data.length; index++) {
          <div id="${data[index].id}" class="cardproduct">
          <img src=${data[index].img} alt="">
         <p style="font-size:15px ;text-align:center">${data[index].title}</p>
-        <p style="font-size: 15px; font-weight: bold;text-align:center"">${data[index].price}</p>
+        <p style="font-size: 15px; font-weight: bold;text-align:center"">${new Intl.NumberFormat('de-DE').format(data[index].price)} $</p>
          <button style="" ><i class="fi fi-rr-shopping-cart-add" ></i> Add to cart</button>
            <button class="buy-now">Buy Now</button>          
         ` ;
