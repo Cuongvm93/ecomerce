@@ -205,10 +205,11 @@ console.log(datetime);
   datauser[i]["OrderRecently"]={"date": datetime,"qty":Quantity,"total":total}
 
 // load về trang chủ
+alert("ALL done-Continue shopping <3")
 localStorage.setItem("cuong",JSON.stringify(datauser))
   setTimeout(() => {
     window.location.href="index.html"
-  }, 3000);
+  }, 1000);
 }
   
 }
