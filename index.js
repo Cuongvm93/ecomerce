@@ -589,7 +589,7 @@ function gosignup(params) {
 // Show cart count effect
 window.onscroll = function() {myscroll()};
 function myscroll() {
-    if (document.documentElement.scrollTop>330) {
+    if (document.documentElement.scrollTop>330 &&login=="true") {
         
         document.getElementById("cart-logo").style.display = "block";
       } else {
