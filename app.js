@@ -126,46 +126,53 @@ function signup() {
    console.log(info);
 // function check user
 let newarr=JSON.parse(a)
-let checkuser=0;
-for (let index = 1; index < newarr.length; index++) {
-    if (newarr[index].user==user) {
-        document.getElementById("erroruser").style.display="block"
-        checkuser=1
-    }
-    
-}
-    
-
-if (checkemail()==1&& checkpass()==0 &&checkuser==0 ) {
-//    let a= localStorage.getItem("cuong")
-   
-
-   if (a==null) {
-    localStorage.setItem("cuong",JSON.stringify(ojb))
-    // window.location.href="login.html"
-    
-   }else{
-     let getinfo=JSON.parse(localStorage.getItem("cuong"))
-     let flag=0;
-    for (let index = 1; index <getinfo.length; index++) {
-        
-        if (email1==getinfo[index].email) {
-            document.getElementById("erroremail").style.display="block"
-            flag=1;
+if (a==null) {
+    info.push(ojb)
+    localStorage.setItem("cuong",JSON.stringify(info))
+    window.location.href="login.html"
+}else{
+    let checkuser=0;
+    for (let index = 1; index < newarr.length; index++) {
+        if (newarr[index].user==user) {
+            document.getElementById("erroruser").style.display="block"
+            checkuser=1
         }
         
     }
+        
     
-    if (flag==0) {
-        getinfo.push(ojb)
-        localStorage.setItem("cuong",JSON.stringify(getinfo))
-        window.location.href="login.html"
+    if (checkemail()==1&& checkpass()==0 &&checkuser==0 ) {
+    //    let a= localStorage.getItem("cuong")
+       
+    
+       if (a==null) {
+        localStorage.setItem("cuong",JSON.stringify(ojb))
+        // window.location.href="login.html"
+        
+       }else{
+         let getinfo=JSON.parse(localStorage.getItem("cuong"))
+         let flag=0;
+        for (let index = 1; index <getinfo.length; index++) {
+            
+            if (email1==getinfo[index].email) {
+                document.getElementById("erroremail").style.display="block"
+                flag=1;
+            }
+            
+        }
+        
+        if (flag==0) {
+            getinfo.push(ojb)
+            localStorage.setItem("cuong",JSON.stringify(getinfo))
+            window.location.href="login.html"
+        }
+    
+       }
+        
+        console.log(getinfo);
+     }
     }
-
-   }
     
-    console.log(getinfo);
- }
 }
 
 
