@@ -182,7 +182,7 @@ if (flag==0) {
   let i=0;  //Bost infomation // Update info to local
   let datauser=JSON.parse(localStorage.getItem("cuong"))
   let curentUser=localStorage.getItem("chao")
-  for (let index = 1; index < datauser.length; index++) {
+  for (let index = 0; index < datauser.length; index++) {
     if (curentUser==datauser[index].user) {
       i=index
       break;
@@ -250,7 +250,7 @@ function update() {
   let user=localStorage.getItem("chao")
   let datauser=JSON.parse(localStorage.getItem("cuong"))
   // console.log(datauser[1].user);
-  for (let index = 1; index < datauser.length; index++) {
+  for (let index = 0; index < datauser.length; index++) {
       if (user==datauser[index].user) {
           i=index
           break;

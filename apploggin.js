@@ -5,14 +5,14 @@
         let pass=document.getElementById("pass").value;
         let data=localStorage.getItem("cuong");
         data=JSON.parse(data);
-        console.log(data);
-        console.log(data[2].user);
-        console.log(data[2].pass);
+        // console.log(data);
+        // console.log(data[2].user);
+        // console.log(data[2].pass);
         let i=0;
         let j=0;
         let arruser=[]
         let arrpass=[]
-        for (let index = 1; index < data.length; index++) {
+        for (let index = 0; index < data.length; index++) {
              arruser.push(data[index].user)
             
             
@@ -24,7 +24,7 @@
         }else{
             document.getElementById("usererror").style.display="none"
             i=0;
-            if (data[index+1].pass!=pass) {
+            if (data[index].pass!=pass) {
                 document.getElementById("passerroe").style.display="block"
                 j=1
             }else{
@@ -39,7 +39,7 @@
        
         if (i==0 &&j==0) {
             localStorage.setItem("boolLogin","true")
-            localStorage.setItem("chao",data[index+1].user)
+            localStorage.setItem("chao",data[index].user)
             // if (localStorage.getItem("productChoice") ==null) { // check xem đã choice product chưa
                 window.location.href="index.html"
             // }else{

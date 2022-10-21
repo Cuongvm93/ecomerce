@@ -1,5 +1,4 @@
-
-
+// localStorage.removeItem("cuong")
 // show/hide eye
 function see() {
     let z = document.getElementById("pw").type;
@@ -122,42 +121,51 @@ function signup() {
         user:user,
         pass:pass,
     }
-   info.push(ojb)
+   
    console.log(info);
 // function check user
 let newarr=JSON.parse(a)
-if (a==null) {
+if (a==null&&user!="") {
+    
     info.push(ojb)
     localStorage.setItem("cuong",JSON.stringify(info))
     window.location.href="login.html"
+    return;
 }else{
+    
     let checkuser=0;
-    for (let index = 1; index < newarr.length; index++) {
+    for (let index = 0; index < newarr.length; index++) {
         if (newarr[index].user==user) {
             document.getElementById("erroruser").style.display="block"
             checkuser=1
+            break;
         }
         
+    }
+    if (user=="") {
+        checkuser=1;
     }
         
     
     if (checkemail()==1&& checkpass()==0 &&checkuser==0 ) {
+        document.getElementById("erroruser").style.display="none"
     //    let a= localStorage.getItem("cuong")
        
     
-       if (a==null) {
-        localStorage.setItem("cuong",JSON.stringify(ojb))
-        // window.location.href="login.html"
+    //    if (a==null) {
+    //     localStorage.setItem("cuong",JSON.stringify(ojb))
+    //     // window.location.href="login.html"
         
-       }else{
+    //    }else{
          let getinfo=JSON.parse(localStorage.getItem("cuong"))
          let flag=0;
-        for (let index = 1; index <getinfo.length; index++) {
+        for (let index = 0; index <getinfo.length; index++) {
             
             if (email1==getinfo[index].email) {
                 document.getElementById("erroremail").style.display="block"
                 flag=1;
             }
+                
             
         }
         
@@ -170,7 +178,7 @@ if (a==null) {
        }
         
         console.log(getinfo);
-     }
+     
     }
     
 }

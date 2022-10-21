@@ -34,7 +34,7 @@ let newpass=document.getElementById("newpass").value
 let user=localStorage.getItem("chao")
 let datauser=JSON.parse(localStorage.getItem("cuong"))
 // console.log(datauser[1].user);
-for (let index = 1; index < datauser.length; index++) {
+for (let index = 0; index < datauser.length; index++) {
     if (user==datauser[index].user) {
         i=index
         break;
@@ -139,7 +139,7 @@ if (localStorage.getItem("boolLogin")=="true") {
 // import infomation
 let datainfo= JSON.parse(localStorage.getItem("cuong"))
 let currentUser=localStorage.getItem("chao")
-for (let index = 1; index < datainfo.length; index++) {
+for (let index = 0; index < datainfo.length; index++) {
     if (datainfo[index].user==currentUser) {
         document.getElementById("fullname").textContent =datainfo[index].name
         document.getElementById("username").textContent=currentUser

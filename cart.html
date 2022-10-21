@@ -247,7 +247,7 @@ let newpass=document.getElementById("newpass").value
 let user=localStorage.getItem("chao")
 let datauser=JSON.parse(localStorage.getItem("cuong"))
 // console.log(datauser[1].user);
-for (let index = 1; index < datauser.length; index++) {
+for (let index = 0; index < datauser.length; index++) {
     if (user==datauser[index].user) {
         i=index
         break;
