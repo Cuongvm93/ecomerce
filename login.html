@@ -33,15 +33,34 @@
    <div class="forget" onclick="forgetpass()">
     Forget Password?
    </div>
-   <button onclick="login()"> Login</button>
+   <button onclick="login()" class="btnlogin"> Login</button>
    <div class="singup">
     Not a member? <a href="./index.html">Sign Up</a>
    </div>
     
 </div>
+
 <div class="opacity">
 
 </div>
+<div class="forgetpass">
+    <label for="" id="mailcheck">Nhập email</label>
+    <input type="text" required>
+    <label for="">Nhập pass</label>
+    <input type="text" required id="newpass">
+    <label for="">Nhập lại pass</label>
+    <input type="text" id="repasss">
+    <p id="emailfoul">email không đúng</p>
+    <p id="passfoul">Password mới không đúng định dạng</p>
+    <p id="repassfoul"> Password nhập lại không trùng</p>
+    <div class="buttonupdate">
+    <button id="update-pass"> Update</button>
+    <button id="cancel-update">Cancel</button>
+    </div>
+    
+</div>
+<p id="usererror">User not exist</p>
+<p id="passerroe">Password is incorrect</p>
 <script src="./apploggin.js"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ dataCart=JSON.parse(dataCart)
 // console.log(data);
 let listOder=document.getElementById("product-list")
 for (let index = 0; index < dataCart.length; index++) {
+  if (dataCart[index][1]!==0) {
     listOder.innerHTML +=`
     <div class="product-detail">
     <img src="${dataCart[index][0].img}" alt="">
@@ -24,6 +25,7 @@ for (let index = 0; index < dataCart.length; index++) {
     </div>
     `
     Quantity+=dataCart[index][1]
+  }
     
 }
 
@@ -174,7 +176,9 @@ for (let index = 0; index < container.length; index++) {
 
 // Action Bost
 if (flag==0) {
-  
+  if (check=="true") {
+    localStorage.removeItem(`${user}newcart`)
+  }
   let i=0;  //Bost infomation // Update info to local
   let datauser=JSON.parse(localStorage.getItem("cuong"))
   let curentUser=localStorage.getItem("chao")

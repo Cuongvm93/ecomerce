@@ -71,7 +71,7 @@ let data=[
         img1:"./Nike/Nike ID6-1.JPG",
         img2:"./Nike/Nike ID6-2.JPG",
         img3:"./Nike/Nike ID6-3.JPG",
-        title:"./Nike Air Force",
+        title:"Nike Air Force",
         des:"Inspired by the original id6",
         price:130,
         cate:"nike"
@@ -418,14 +418,16 @@ x.forEach((tap,index)=>{
 // Function add change Cart count
 let cartcount=0;
 let newarrcart=JSON.parse(localStorage.getItem(`${user}newcart`))
-for (let index = 0; index < newarrcart.length; index++) {
-    cartcount += newarrcart[index][1]
+if (newarrcart!=null) {
+    for (let index = 0; index < newarrcart.length; index++) {
+        cartcount += newarrcart[index][1]
+        
+    }
+    console.log(newarrcart);
+    console.log(cartcount);
     
+    document.getElementById("cartcount").textContent=cartcount
 }
-console.log(newarrcart);
-console.log(cartcount);
-
-document.getElementById("cartcount").textContent=cartcount
 
 
 
