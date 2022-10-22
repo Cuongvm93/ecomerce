@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body id="body">
 <div class="login">
+   
     <div class="imgcha">    
         <img class="img" src="./image/660e618f1420fb7ea231.jpg" alt="">
     </div>
@@ -21,8 +25,8 @@
         
     </div>
    <div class="username">
-  
-        <input type="text" required id="pass">
+    <i class="fa-solid fa-eye" id="eye" onclick="see()"></i>
+        <input type="password" required id="pass">
         <span></span>
         <label> Password</label>
    
@@ -45,17 +49,23 @@
 </div>
 <div class="forgetpass">
     <label for="" id="mailcheck">Nhập email</label>
-    <input type="text" required>
-    <label for="">Nhập pass</label>
-    <input type="text" required id="newpass">
-    <label for="">Nhập lại pass</label>
-    <input type="text" id="repasss">
+    <input type="text" required id="mailforget">
     <p id="emailfoul">email không đúng</p>
+    <label for="">Nhập pass</label>
+    <input type="password" required id="newpass">
     <p id="passfoul">Password mới không đúng định dạng</p>
+    <label for="">Nhập lại pass</label>
+    <input type="password" id="repass">
     <p id="repassfoul"> Password nhập lại không trùng</p>
+    
+    <i class="fa-solid fa-eye" id="eye2" onclick="see2()"></i>
+    <i class="fa-solid fa-eye" id="eye3" onclick="see3()"></i>
+    
     <div class="buttonupdate">
-    <button id="update-pass"> Update</button>
-    <button id="cancel-update">Cancel</button>
+        
+    <button id="update-pass" onclick="updatepass()"> Update</button>
+    
+    <button id="cancel-update" onclick="cancelforget()">Cancel</button>
     </div>
     
 </div>

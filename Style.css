@@ -194,15 +194,58 @@ button:hover {
     display: none;
 }
 .forgetpass{
-    position: absolute;
-    width: 200px;
-    height: 300px;
-    background-color: silver;
-    z-index: 1000;
-    left: 600px;
-    top: 250px;
-    display: none;
     padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+    height: 390px;
+    background-color: aliceblue;
+
+    border-radius: 10px;
+    display: none;
+}
+.forgetpass input{
+    
+    margin-left: 10px;
+    margin-top: 6px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    background: none;
+    outline: none;
+    width: 90%;
+    padding: 0 5px;
+    font-size: 15px;
+    margin-bottom: 12px;
+   
+    
+
+    height: 40px;
+}
+.forgetpass label{
+    
+   
+    left: 5px;
+   
+    color: silver;
+    font-size: 15px;
+    pointer-events: none;
+    transition: .5s;
+    
+}
+.forgetpass p{
+    position: relative;
+    left:70px;
+    display: block;
+    font-size: 10px;
+    color: red;
+    display:none;
+}
+.forgetpass p:focus{
+    border-bottom: 1.5px solid rgb(27, 133, 225);
+    border-radius:10px ;
 }
 /* .forgetpass button{
     
@@ -214,8 +257,10 @@ button:hover {
 } */
 .buttonupdate{
     position:absolute;
-    top: 190px;
-    width: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 320px;
+    width: 270px;
     height: 30px;
     display: flex;
     flex-direction: row;
@@ -223,7 +268,35 @@ button:hover {
 }
 .buttonupdate button{
 
-    width: 60px;
-    height: 25px;
+   
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: aqua;
+    border: none;
+    font-size: 15PX;
+    font-family: Arial, Helvetica, sans-serif;
     
+}
+.gethidden{
+    display: none;
+    transition-duration: 0,3;
+}
+#eye {
+    position: absolute;
+    z-index: 1000;
+    top:10px;
+    left:200px
+}   
+#eye2{
+    position: absolute;
+    
+    top:134px;
+    left:230px
+}
+#eye3{
+    position: absolute;
+    
+    top: 210px;
+    left:230px
 }
