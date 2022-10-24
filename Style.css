@@ -164,8 +164,8 @@ button:hover {
 }
 
 #usererror{
-    position: absolute;
-    top: 180px;
+    position: relative;
+    top: -20px;
     font-size: 12px;
     color: red;
     left: 120px;
@@ -174,8 +174,8 @@ button:hover {
 
 }
 #passerroe{
-    position: absolute;
-    top: 180px;
+    position: relative;
+    top:-20px;
     font-size: 12px;
     color: red;
     left: 100px;
