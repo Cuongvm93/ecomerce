@@ -24,15 +24,15 @@
             </div>
             <div class="username">
                 <i class="fa-sharp fa-solid fa-check" id="tick"></i>
-                <input type="password" oninput="checkpass()"  id="pw" >
+                <input type="password" oninput="checkpass()"  id="pw" onfocusout="clickoutpass()">
                 <span></span>
-                <label> Password</label>
+                <label>Password</label>
             </div>
             <div class="username">
                 <i class="fa-sharp fa-solid fa-check" id="tick2"></i>
                 <input type="text" id="check" oninput="checkemail()" required>
                 <span></span>
-                <label for="">Email</label>
+                <label >Email</label>
             </div>
         </form>
         <p id="erroruser">User name đã tồn tại</p>

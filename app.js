@@ -60,6 +60,9 @@ function checkemail() {
 // function clickout() {
 //     document.getElementById("pannel").style.display="none"
 // }
+function clickoutpass(params) {
+    document.getElementById("pannel").style.display="none"
+}
 function checkpass() {//khi input pass thì nó chỉ chạy cái funtion này nên log checkpass() vòng ngoài ko được gọi nữa vì sự kiên oninput gắn call cái funton checkemail() này
     var i = 0;
     document.getElementById("pannel").style.display = "block";

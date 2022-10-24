@@ -89,14 +89,14 @@ body{
     background: blue;
     transition: 0.5s;
 }
-.username input:focus ~ label,
-.username input:valid ~ label{
-  top: 0px;
+.username input:focus ~ label{
+
+  top: 5px;
   color: #2691d9;
   font-size: 10px;
 }
-.username input:focus ~ span::before,
-.username input:valid ~ span::before{
+
+.username input:focus ~ span::before{
   width: 100%;
 }
 .forget{
